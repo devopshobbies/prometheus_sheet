@@ -1,5 +1,16 @@
+
 network 1 -> NAT
 network2 -> Host-only adpater
+
+
+### step 0
+
+- port forward on NAT
+- host port = 2222
+- guest port = 22
+- ssh name@127.0.0.1 -p 2222 
+
+### step 1
 `sudo nano /etc/netplan/01-netcfg.yaml`
 
 ```yml
