@@ -36,3 +36,9 @@ network:
 `sudo chmod 600 /etc/netplan/01-netcfg.yaml`
 
 `sudo netplan apply`
+
+sudo apt install -y zsh python3-pip neovim net-tools nmap tcpdump
+
+https://docs.docker.com/engine/install/ubuntu/
+https://ohmyz.sh
+http://www.lazyvim.org/installation
