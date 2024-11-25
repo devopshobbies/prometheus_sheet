@@ -29,6 +29,7 @@
               "state": {
                 "file": "Prometheus/1-introduction/1-1-What_Is_Prometheus/What_Is_Prometheus.md",
                 "mode": "source",
+                "backlinks": false,
                 "source": false
               },
               "icon": "lucide-file",
@@ -194,16 +195,16 @@
   },
   "active": "ef75ce53331989b5",
   "lastOpenFiles": [
-    "Prometheus/1-introduction/1-1-What_Is_Prometheus/Architect.md",
+    "Resource.md",
     "Prometheus/1-introduction/1-1-What_Is_Prometheus/What_Is_Prometheus.md",
-    "Pasted image 20241120232147.png",
-    "Prometheus/1-introduction/Getting_Started.md",
+    "Prometheus/1-introduction/1-1-What_Is_Prometheus/Architect.md",
     "Prometheus/1-introduction/1-introduction.md",
+    "Prometheus/1-introduction/Getting_Started.md",
+    "Pasted image 20241120232147.png",
     "README.md",
     "Excalidraw/roadmap_prom.excalidraw",
     "Prometheus/1-introduction/1-1-What_Is_Prometheus",
     "map.md",
-    "Resource.md",
     "concept.md",
     "Prometheus/1-introduction/vm-config.md",
     "service_discovery.md",
