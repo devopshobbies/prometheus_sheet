@@ -1,7 +1,7 @@
 [[create a link]]
 [[service_discovery]]
 [[alerting]]
-[[What_Is_Prometheus]]
+[[a-What_Is_Prometheus]]
 [[concept]]
 
 resource:

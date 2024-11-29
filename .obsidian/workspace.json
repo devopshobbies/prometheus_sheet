@@ -8,32 +8,18 @@
         "type": "tabs",
         "children": [
           {
-            "id": "9ed31c9a88d37294",
+            "id": "77a63896f73fceae",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "README.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "README"
-            }
-          },
-          {
-            "id": "ef75ce53331989b5",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Prometheus/1-introduction/1-1-What_Is_Prometheus/What_Is_Prometheus.md",
+                "file": "Prometheus/1-introduction/1-1-What_Is_Prometheus/b-Architect.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "What_Is_Prometheus"
+              "title": "b-Architect"
             }
           },
           {
@@ -50,8 +36,7 @@
               "title": "1-introduction"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -193,18 +178,29 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "ef75ce53331989b5",
+  "active": "5099dab323b69ec5",
   "lastOpenFiles": [
+    "Prometheus/1-introduction/1-1-What_Is_Prometheus/a-What_Is_Prometheus.md",
+    "Excalidraw/roadmap_prom.excalidraw",
+    "Prometheus/1-introduction/1-1-What_Is_Prometheus/c-glossary.md",
+    "Prometheus/1-introduction/1-1-What_Is_Prometheus/b-Architect.md",
+    "src/SUMMARIES.png",
+    "src/gauge.png",
+    "src/counter.png",
     "Resource.md",
-    "Prometheus/1-introduction/1-1-What_Is_Prometheus/What_Is_Prometheus.md",
-    "Prometheus/1-introduction/1-1-What_Is_Prometheus/Architect.md",
+    "Untitled.md",
+    "README.md",
+    "map.md",
+    "src/sampleTimeSeries.png",
+    "src/tsdbKind.png",
+    "src/3Observability.png",
+    "src/4goldenSignal.png",
+    "src/histogram.png",
+    "src/time_series.png",
     "Prometheus/1-introduction/1-introduction.md",
     "Prometheus/1-introduction/Getting_Started.md",
     "Pasted image 20241120232147.png",
-    "README.md",
-    "Excalidraw/roadmap_prom.excalidraw",
     "Prometheus/1-introduction/1-1-What_Is_Prometheus",
-    "map.md",
     "concept.md",
     "Prometheus/1-introduction/vm-config.md",
     "service_discovery.md",
@@ -217,13 +213,8 @@
     "Prometheus/1-introduction",
     "Prometheus",
     "Excalidraw/RoadMap_prom_desk.excalidraw.md",
-    "src/architecture.png",
     "Excalidraw/Drawing 2024-11-20 21.11.21.excalidraw.md",
-    "src/pushToAlert.png",
-    "src/pushVsPull.png",
     "Excalidraw/Drawing 2024-11-16 23.49.33.excalidraw.md",
-    "Excalidraw",
-    "src/Screenshot from 2024-11-09 23-34-20.png",
-    "src/Screenshot from 2024-11-09 23-19-34.png"
+    "Excalidraw"
   ]
 }
