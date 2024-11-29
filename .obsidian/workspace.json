@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Prometheus/1-introduction/1-1-What_Is_Prometheus/b-Architect.md",
+                "file": "Prometheus/1-introduction/1-1-What_Is_Prometheus/a-What_Is_Prometheus.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "b-Architect"
+              "title": "a-What_Is_Prometheus"
             }
           },
           {
@@ -178,12 +178,12 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "5099dab323b69ec5",
+  "active": "77a63896f73fceae",
   "lastOpenFiles": [
-    "Prometheus/1-introduction/1-1-What_Is_Prometheus/a-What_Is_Prometheus.md",
     "Excalidraw/roadmap_prom.excalidraw",
     "Prometheus/1-introduction/1-1-What_Is_Prometheus/c-glossary.md",
     "Prometheus/1-introduction/1-1-What_Is_Prometheus/b-Architect.md",
+    "Prometheus/1-introduction/1-1-What_Is_Prometheus/a-What_Is_Prometheus.md",
     "src/SUMMARIES.png",
     "src/gauge.png",
     "src/counter.png",

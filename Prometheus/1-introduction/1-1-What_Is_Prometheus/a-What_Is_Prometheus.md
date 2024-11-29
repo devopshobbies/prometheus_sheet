@@ -287,6 +287,8 @@ node_cpu_seconds_total{mode="idle",instance="localhost"} 12345.67
 - **تحلیل عملکرد:** می‌توانید با استفاده از Label‌ها، عملکرد بخش‌های مختلف سیستم را با هم مقایسه کنید.
 - **ایجاد هشدارهای سفارشی:** می‌توانید هشدارهایی را بر اساس مقادیر خاصی از Label‌ها ایجاد کنید.
 
+---
+
 ### مثال‌های دیگر از Label‌ها:
 
 - ‏`job="nginx"`: برای شناسایی متریک‌های مربوط به وب سرور Nginx
@@ -309,5 +311,20 @@ node_cpu_seconds_total{mode="idle",instance="localhost"} 12345.67
 - **داشبوردهای Grafana:** نحوه استفاده از Label‌ها برای ایجاد داشبوردهای سفارشی در Grafana.
 - **بهترین روش‌ها برای استفاده از Label‌ها:** توصیه‌هایی برای استفاده موثر از Label‌ها در محیط‌های تولید.
 
+--------
+### reference
 
+youtube:
+https://virgool.io/@naeemaei/ماینیتوریگ-web-api-با-prometheus-و-grafana-بخش-1-alebzphseodn
+https://www.youtube.com/watch?v=vY61h6cSkVA&list=PLrMP04WSdCjrL4OBnaqXRy8X3XEd7ZrKf&index=1
+https://www.youtube.com/watch?v=JQrk6HwlN78&list=PL6VBQyIvTlRhoCvodpzjQK9oRVvcviHdA
+https://www.youtube.com/watch?v=dk2-_DbWb80&list=PLVx1qovxj-anCTn6um3BDsoHnIr0O2tz3
+
+article:
+https://prometheus.io/docs/introduction/overview/
+https://virgool.io/@rafiee/در-مسیر-observability-استک-پرومتئوس-قسمت-چهارم-obclldvrwtgp
+https://virgool.io/@rafiee/در-مسیر-observability-استک-پرومتئوس-قسمت-پنجم-nktvhhhvye00
+https://virgool.io/@ali.fattahi/مانیتورینگ-و-تشخیص-ناهنجاری-anomaly-در-داده-ها-با-استفاده-از-grafanaprometheus-yemhl8ps3fij
+https://virgool.io/@pourya.salahi76/monitoring-tools-such-as-prometheus-wjfu6et1vcq0
+https://virgool.io/@naeemaei/ماینیتوریگ-web-api-با-prometheus-و-grafana-بخش-1-alebzphseodn
 
