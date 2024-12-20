@@ -1,0 +1,6 @@
+# HELP my_failures_total Description of counter
+# TYPE my_failures_total counter
+my_failures_total 2.6
+# HELP my_failures_created Description of counter
+# TYPE my_failures_created gauge
+my_failures_created 1.7347286316020355e+09

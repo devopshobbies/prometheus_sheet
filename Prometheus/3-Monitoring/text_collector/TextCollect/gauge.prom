@@ -1,0 +1,3 @@
+# HELP my_inprogress_requests Description of gauge
+# TYPE my_inprogress_requests gauge
+my_inprogress_requests 4.2

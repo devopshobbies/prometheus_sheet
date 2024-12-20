@@ -1,0 +1,22 @@
+# HELP request_latency_seconds Description of histogram
+# TYPE request_latency_seconds histogram
+request_latency_seconds_bucket{le="0.005"} 0.0
+request_latency_seconds_bucket{le="0.01"} 0.0
+request_latency_seconds_bucket{le="0.025"} 0.0
+request_latency_seconds_bucket{le="0.05"} 0.0
+request_latency_seconds_bucket{le="0.075"} 0.0
+request_latency_seconds_bucket{le="0.1"} 0.0
+request_latency_seconds_bucket{le="0.25"} 0.0
+request_latency_seconds_bucket{le="0.5"} 0.0
+request_latency_seconds_bucket{le="0.75"} 0.0
+request_latency_seconds_bucket{le="1.0"} 0.0
+request_latency_seconds_bucket{le="2.5"} 0.0
+request_latency_seconds_bucket{le="5.0"} 1.0
+request_latency_seconds_bucket{le="7.5"} 1.0
+request_latency_seconds_bucket{le="10.0"} 1.0
+request_latency_seconds_bucket{le="+Inf"} 1.0
+request_latency_seconds_count 1.0
+request_latency_seconds_sum 4.7
+# HELP request_latency_seconds_created Description of histogram
+# TYPE request_latency_seconds_created gauge
+request_latency_seconds_created 1.7347286278460772e+09

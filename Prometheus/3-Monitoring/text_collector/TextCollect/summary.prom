@@ -1,0 +1,7 @@
+# HELP request_latency_seconds Description of summary
+# TYPE request_latency_seconds summary
+request_latency_seconds_count 1.0
+request_latency_seconds_sum 4.7
+# HELP request_latency_seconds_created Description of summary
+# TYPE request_latency_seconds_created gauge
+request_latency_seconds_created 1.7347286264667068e+09
