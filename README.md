@@ -206,7 +206,7 @@ groups:
 ## How to Use This Document with the GitHub Repo
 1. Clone the repository:
    ```bash
-   [git clone https://github.com/your-username/prometheus-learning.git](https://github.com/DannyRavi/prometheus_sheet.git)
+   git clone https://github.com/DannyRavi/prometheus_sheet.git
    ```
 2. Follow the instructions in the `README.md` file to set up the environment.
 3. Refer to this document for explanations and context while watching the video lectures.
