@@ -2,6 +2,8 @@
 
 This document provides a structured guide to learning **Prometheus**, a powerful open-source monitoring and alerting toolkit, based on a video lecture series. The goal is to help you understand the core concepts, set up Prometheus, and integrate it into your systems for effective monitoring.
 
+see this video in Farsi --> [Prometheus Learning_Farsi]([https://prometheus.io/download/](https://www.aparat.com/v/psc074x)). 
+
 ---
 
 ## Table of Contents
