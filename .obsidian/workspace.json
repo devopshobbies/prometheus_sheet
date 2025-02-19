@@ -11,15 +11,10 @@
             "id": "77a63896f73fceae",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Prometheus/1-introduction/2-Getting_Start/2_bare_metal.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "2_bare_metal"
+              "title": "New tab"
             }
           },
           {
@@ -56,19 +51,43 @@
             "id": "c2eca7cd4b3f72d7",
             "type": "leaf",
             "state": {
+              "type": "excalidraw",
+              "state": {
+                "file": "Excalidraw/roadmap_prom.excalidraw"
+              },
+              "icon": "excalidraw-icon",
+              "title": "roadmap_prom"
+            }
+          },
+          {
+            "id": "b956171c790ba1e9",
+            "type": "leaf",
+            "state": {
               "type": "markdown",
               "state": {
-                "file": "Prometheus/3-Monitoring/text_collector/readme.md",
+                "file": "Prometheus/3-Monitoring/Bridge/Prometheus Bridge.md",
                 "mode": "source",
-                "backlinks": false,
-                "source": false
+                "source": false,
+                "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "readme"
+              "title": "Prometheus Bridge"
+            }
+          },
+          {
+            "id": "145ed365e2f2e6c0",
+            "type": "leaf",
+            "state": {
+              "type": "excalidraw",
+              "state": {
+                "file": "Excalidraw/roadmap_prom.excalidraw"
+              },
+              "icon": "excalidraw-icon",
+              "title": "roadmap_prom"
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 5
       }
     ],
     "direction": "vertical"
@@ -87,7 +106,8 @@
             "state": {
               "type": "file-explorer",
               "state": {
-                "sortOrder": "alphabetical"
+                "sortOrder": "alphabetical",
+                "autoReveal": false
               },
               "icon": "lucide-folder-closed",
               "title": "Files"
@@ -212,43 +232,45 @@
   },
   "active": "5099dab323b69ec5",
   "lastOpenFiles": [
-    "src/collectFile.png",
-    "Prometheus/3-Monitoring/Instrumentation.md",
+    "src/bridge.png",
+    "Excalidraw/roadmap_prom.excalidraw",
+    "Prometheus/3-Monitoring/Bridge/Prometheus Bridge.md",
     "Prometheus/3-Monitoring/text_collector/readme.md",
+    "Prometheus/3-Monitoring/Bridge/requirements.txt",
+    "Prometheus/3-Monitoring/Bridge/prometheus_bridge.py",
+    "Prometheus/3-Monitoring/Bridge/app.py",
+    "Prometheus/3-Monitoring/Bridge",
+    "Prometheus/3-Monitoring/Untitled.md",
+    "Prometheus/3-Monitoring/Instrumentation.md",
+    "Prometheus/3-Monitoring/pushgateway.md",
+    "Prometheus/3-Monitoring/Exporting-server-app",
+    "Resource.md",
+    "src/3Observability.png",
+    "map.md",
+    "Prometheus/1-introduction/1-introduction.md",
+    "Prometheus/2-Visualization/Untitled",
+    "Prometheus/1-introduction/2-Getting_Start/3_docker_install.md",
+    "src/collectFile.png",
     "Prometheus/3-Monitoring/text_collector/TextCollect/Untitled",
     "Prometheus/3-Monitoring/text_collector.md",
     "Prometheus/3-Monitoring/text_collector/sample.py",
     "Prometheus/3-Monitoring/text_collector/summary.py",
-    "Prometheus/3-Monitoring/text_collector/histo.py",
-    "Prometheus/3-Monitoring/text_collector/gauge.py",
-    "Prometheus/3-Monitoring/text_collector/counter.py",
-    "Prometheus/3-Monitoring/text_collector/TextCollect/summary.prom",
-    "Prometheus/3-Monitoring/text_collector/TextCollect/histo.prom",
-    "Prometheus/3-Monitoring/text_collector/TextCollect/gauge.prom",
-    "Prometheus/3-Monitoring/text_collector/TextCollect/counter.prom",
     "Prometheus/1-introduction/2-Getting_Start/install_by_docker.md",
     "Prometheus/1-introduction/2-Getting_Start/bareMetalDraw.md",
-    "Prometheus/1-introduction/2-Getting_Start/3_docker_install.md",
     "Prometheus/1-introduction/2-Getting_Start/2_bare_metal_install.md",
     "Prometheus/1-introduction/2-Getting_Start/1_init_Virtual_Machine.md",
-    "Resource.md",
-    "map.md",
     "README.md",
-    "Prometheus/1-introduction/1-introduction.md",
     "Prometheus/1-introduction/1-1-What_Is_Prometheus/a-What_Is_Prometheus.md",
     "Prometheus/1-introduction/1-1-What_Is_Prometheus/c-glossary.md",
     "Prometheus/1-introduction/1-1-What_Is_Prometheus/b-Architect.md",
     "src/SUMMARIES.png",
     "src/gauge.png",
     "src/counter.png",
-    "Untitled.md",
     "src/sampleTimeSeries.png",
     "src/tsdbKind.png",
-    "src/3Observability.png",
     "src/4goldenSignal.png",
     "src/histogram.png",
     "src/time_series.png",
-    "Pasted image 20241120232147.png",
     "concept.md",
     "Prometheus/1-introduction/vm-config.md",
     "service_discovery.md",

@@ -12,4 +12,6 @@ run node Exporter
 locate node_exporter binary
 `./node_exporter --collector.textfile.directory="/var/lib/node_exporter/textfile_collector"`
 
+https://prometheus.io/docs/guides/go-application/
+
 

@@ -2,5 +2,6 @@
   "cssTheme": "Obsidianite",
   "accentColor": "#3bff38",
   "baseFontSize": 16,
-  "baseFontSizeAction": false
+  "baseFontSizeAction": false,
+  "showRibbon": true
 }
