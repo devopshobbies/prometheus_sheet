@@ -1,14 +1,170 @@
-he Prometheus Bridge is a tool that allows you to expose non-Prometheus metrics in a format that Prometheus can scrape. This is useful when you have custom metrics or legacy systems that don't natively support Prometheus metrics.
-
-Below is a full example of how to use the Prometheus Bridge to expose custom metrics and scrape them using Prometheus.
 
 
----------
-Here’s a **complete example** of a Prometheus Bridge in action. We’ll create a simple application that exposes metrics in JSON format, then use a Python-based bridge to convert those metrics into Prometheus format for scraping.
+-------
 
+در Prometheus به **Bridge** به ابزارها یا مکانیزم‌هایی گفته می‌شود که Prometheus را با سایر سیستم‌های مانیتورینگ، ذخیره‌سازی داده‌ها یا پلتفرم‌های هشداردهی (Alerting) ادغام می‌کنند. این Bridgeها به Prometheus اجازه می‌دهند تا با سیستم‌های خارجی ارتباط برقرار کند، داده‌ها را به اشتراک بگذارد یا از قابلیت‌های دیگر سیستم‌ها استفاده کند. در ادامه، به بررسی مفهوم Bridge در Prometheus و برخی از ابزارهای رایج که به عنوان Bridge عمل می‌کنند، می‌پردازیم.
+### **چرا Bridge در Prometheus مهم است؟**
+‏Prometheus یک سیستم مانیتورینگ قدرتمند است، اما برخی از قابلیت‌ها را به‌صورت پیش‌فرض ارائه نمی‌دهد. برای مثال:
+- **ذخیره‌سازی بلندمدت داده‌ها**: Prometheus به‌صورت پیش‌فرض داده‌ها را به‌صورت محلی و برای مدت محدودی ذخیره می‌کند.
+- **یکپارچه‌سازی با سیستم‌های هشداردهی**: Prometheus از سیستم‌های هشداردهی خارجی مانند PagerDuty، Slack و غیره پشتیبانی می‌کند، اما برای استفاده از آن‌ها نیاز به Bridge دارد.
+- **ارتباط با سایر سیستم‌های مانیتورینگ**: Prometheus ممکن است نیاز داشته باشد با سیستم‌های دیگر مانند Grafana، Thanos یا Cortex ادغام شود.
 
+‏Bridgeها این شکاف‌ها را پر می‌کنند و به Prometheus اجازه می‌دهند تا با سیستم‌های خارجی ارتباط برقرار کند.
 
 ![[bridge.png]]
+
+---
+
+### **انواع Bridge در Prometheus**
+
+#### ۱. **Bridge برای ذخیره‌سازی بلندمدت داده‌ها**
+‏Prometheus به‌صورت پیش‌فرض داده‌ها را به‌صورت محلی و برای مدت محدودی ذخیره می‌کند. برای ذخیره‌سازی بلندمدت داده‌ها، می‌توان از Bridgeهایی مانند **Thanos** یا **Cortex** استفاده کرد:
+- ‏**Thanos**: یک ابزار متن‌باز است که به Prometheus اجازه می‌دهد داده‌ها را در ذخیره‌سازی‌های ابری (مانند S3) ذخیره کند و امکان جستجوی بلندمدت در داده‌ها را فراهم می‌کند.
+- ‏**Cortex**: یک پلتفرم ذخیره‌سازی توزیع‌شده است که به Prometheus اجازه می‌دهد داده‌ها را به‌صورت مقیاس‌پذیر و بلندمدت ذخیره کند.
+
+#### ۲. **Bridge برای هشداردهی (Alerting)**
+‏Prometheus از سیستم‌های هشداردهی خارجی پشتیبانی می‌کند، اما برای ارسال هشدارها به این سیستم‌ها نیاز به Bridge دارد. برخی از ابزارهای رایج عبارتند از:
+-‏ **Alertmanager**: یک جزء داخلی Prometheus است که وظیفه‌ی مدیریت و ارسال هشدارها به سیستم‌های خارجی مانند Slack، PagerDuty، Email و غیره را بر عهده دارد.
+-‏ **Webhook Bridge**: با استفاده از Webhook، می‌توان هشدارهای Prometheus را به هر سیستم خارجی ارسال کرد.
+
+#### ۳. **Bridge برای یکپارچه‌سازی با Grafana**
+‏Grafana یک ابزار قدرتمند برای تجسم داده‌ها است. Prometheus به‌صورت پیش‌فرض با Grafana ادغام می‌شود و می‌تواند داده‌ها را به Grafana ارسال کند. این ادغام به‌صورت مستقیم انجام می‌شود و نیاز به Bridge خاصی ندارد، اما می‌توان از ابزارهایی مانند **Prometheus Exporter** برای جمع‌آوری داده‌های اضافی و ارسال آن‌ها به Grafana استفاده کرد.
+
+#### ۴. **Bridge برای ارتباط با سایر سیستم‌های مانیتورینگ**
+‏Prometheus ممکن است نیاز داشته باشد با سایر سیستم‌های مانیتورینگ مانند **Graphite**, **InfluxDB** یا **OpenTSDB** ارتباط برقرار کند. برای این کار، می‌توان از Bridgeهایی مانند **Prometheus Remote Write** یا **Prometheus Exporter** استفاده کرد:
+- ‏**Prometheus Remote Write**: این قابلیت به Prometheus اجازه می‌دهد داده‌ها را به سیستم‌های ذخیره‌سازی خارجی ارسال کند.
+- ‏**Prometheus Exporter**: این ابزارها داده‌ها را از سیستم‌های دیگر جمع‌آوری کرده و در قالب متریک‌های Prometheus ارائه می‌دهند.
+
+---
+
+### **مثال‌هایی از Bridge در Prometheus**
+
+#### ۱. **استفاده از Thanos برای ذخیره‌سازی بلندمدت**
+```yaml
+# پیکربندی Prometheus برای ارسال داده‌ها به Thanos
+remote_write:
+  - url: "http://thanos-receive:10908/api/v1/receive"
+```
+
+در این مثال، Prometheus داده‌ها را به Thanos ارسال می‌کند تا در ذخیره‌سازی‌های ابری (مانند S3) ذخیره شود.
+
+#### ۲. **استفاده از Alertmanager برای ارسال هشدار به Slack**
+```yaml
+# پیکربندی Alertmanager برای ارسال هشدار به Slack
+route:
+  receiver: 'slack-notifications'
+receivers:
+  - name: 'slack-notifications'
+    slack_configs:
+      - api_url: 'https://hooks.slack.com/services/...'
+        channel: '#alerts'
+```
+
+در این مثال، Alertmanager هشدارهای Prometheus را به یک کانال Slack ارسال می‌کند.
+
+#### ۳. **استفاده از Prometheus Remote Write برای ارسال داده‌ها به InfluxDB**
+```yaml
+# پیکربندی Prometheus برای ارسال داده‌ها به InfluxDB
+remote_write:
+  - url: "http://influxdb:8086/api/v1/prom/write?db=prometheus"
+```
+
+در این مثال، Prometheus داده‌ها را به InfluxDB ارسال می‌کند.
+
+---
+
+### **جمع‌بندی**
+‏Bridgeها در Prometheus نقش مهمی در ادغام این سیستم با سایر پلتفرم‌ها و ابزارها ایفا می‌کنند. این Bridgeها به Prometheus اجازه می‌دهند تا:
+- داده‌ها را به‌صورت بلندمدت ذخیره کند.
+- هشدارها را به سیستم‌های خارجی ارسال کند.
+- با سایر سیستم‌های مانیتورینگ ارتباط برقرار کند.
+- داده‌ها را به ابزارهای تجسمی مانند Grafana ارسال کند.
+
+با استفاده از Bridgeها، می‌توان قابلیت‌های Prometheus را گسترش داد و آن را به یک سیستم مانیتورینگ کامل و یکپارچه تبدیل کرد.
+
+----------
+
+حتماً! در این بخش، به‌صورت عمیق‌تر و با جزئیات بیشتر به مفهوم **Bridge** در Prometheus می‌پردازیم. Bridgeها در Prometheus نقش حیاتی در ادغام این سیستم با سایر پلتفرم‌ها و ابزارها ایفا می‌کنند. این ابزارها به Prometheus اجازه می‌دهند تا با سیستم‌های خارجی ارتباط برقرار کند، داده‌ها را به اشتراک بگذارد یا از قابلیت‌های دیگر سیستم‌ها استفاده کند. در ادامه، به بررسی دقیق‌تر Bridgeها در Prometheus و نحوه‌ی استفاده از آن‌ها می‌پردازیم.
+
+---
+
+### **چرا Bridgeها در Prometheus مهم هستند؟**
+‏Prometheus یک سیستم مانیتورینگ قدرتمند است، اما برخی از قابلیت‌ها را به‌صورت پیش‌فرض ارائه نمی‌دهد. برای مثال:
+- **ذخیره‌سازی بلندمدت داده‌ها**: Prometheus به‌صورت پیش‌فرض داده‌ها را به‌صورت محلی و برای مدت محدودی ذخیره می‌کند.
+- **یکپارچه‌سازی با سیستم‌های هشداردهی**: Prometheus از سیستم‌های هشداردهی خارجی مانند PagerDuty، Slack و غیره پشتیبانی می‌کند، اما برای استفاده از آن‌ها نیاز به Bridge دارد.
+- **ارتباط با سایر سیستم‌های مانیتورینگ**: Prometheus ممکن است نیاز داشته باشد با سیستم‌های دیگر مانند Grafana، Thanos یا Cortex ادغام شود.
+
+‏Bridgeها این شکاف‌ها را پر می‌کنند و به Prometheus اجازه می‌دهند تا با سیستم‌های خارجی ارتباط برقرار کند.
+
+---
+
+### **انواع Bridge در Prometheus**
+
+#### ۱. **Bridge برای ذخیره‌سازی بلندمدت داده‌ها**
+‏Prometheus به‌صورت پیش‌فرض داده‌ها را به‌صورت محلی و برای مدت محدودی ذخیره می‌کند. برای ذخیره‌سازی بلندمدت داده‌ها، می‌توان از Bridgeهایی مانند **Thanos** یا **Cortex** استفاده کرد:
+-‏ **Thanos**: یک ابزار متن‌باز است که به Prometheus اجازه می‌دهد داده‌ها را در ذخیره‌سازی‌های ابری (مانند S3) ذخیره کند و امکان جستجوی بلندمدت در داده‌ها را فراهم می‌کند.
+-‏ **Cortex**: یک پلتفرم ذخیره‌سازی توزیع‌شده است که به Prometheus اجازه می‌دهد داده‌ها را به‌صورت مقیاس‌پذیر و بلندمدت ذخیره کند.
+
+#### ۲. **Bridge برای هشداردهی (Alerting)**
+‏Prometheus از سیستم‌های هشداردهی خارجی پشتیبانی می‌کند، اما برای ارسال هشدارها به این سیستم‌ها نیاز به Bridge دارد. برخی از ابزارهای رایج عبارتند از:
+-‏ **Alertmanager**: یک جزء داخلی Prometheus است که وظیفه‌ی مدیریت و ارسال هشدارها به سیستم‌های خارجی مانند Slack، PagerDuty، Email و غیره را بر عهده دارد.
+-‏ **Webhook Bridge**: با استفاده از Webhook، می‌توان هشدارهای Prometheus را به هر سیستم خارجی ارسال کرد.
+
+#### ۳. **Bridge برای یکپارچه‌سازی با Grafana**
+‏Grafana یک ابزار قدرتمند برای تجسم داده‌ها است. Prometheus به‌صورت پیش‌فرض با Grafana ادغام می‌شود و می‌تواند داده‌ها را به Grafana ارسال کند. این ادغام به‌صورت مستقیم انجام می‌شود و نیاز به Bridge خاصی ندارد، اما می‌توان از ابزارهایی مانند **Prometheus Exporter** برای جمع‌آوری داده‌های اضافی و ارسال آن‌ها به Grafana استفاده کرد.
+
+#### ۴. **Bridge برای ارتباط با سایر سیستم‌های مانیتورینگ**
+‏Prometheus ممکن است نیاز داشته باشد با سایر سیستم‌های مانیتورینگ مانند **Graphite**, **InfluxDB** یا **OpenTSDB** ارتباط برقرار کند. برای این کار، می‌توان از Bridgeهایی مانند **Prometheus Remote Write** یا **Prometheus Exporter** استفاده کرد:
+-‏ **Prometheus Remote Write**: این قابلیت به Prometheus اجازه می‌دهد داده‌ها را به سیستم‌های ذخیره‌سازی خارجی ارسال کند.
+- ‏**Prometheus Exporter**: این ابزارها داده‌ها را از سیستم‌های دیگر جمع‌آوری کرده و در قالب متریک‌های Prometheus ارائه می‌دهند.
+
+---
+
+### **مثال‌هایی از Bridge در Prometheus**
+
+#### ۱. **استفاده از Thanos برای ذخیره‌سازی بلندمدت**
+```yaml
+# پیکربندی Prometheus برای ارسال داده‌ها به Thanos
+remote_write:
+  - url: "http://thanos-receive:10908/api/v1/receive"
+```
+
+در این مثال، Prometheus داده‌ها را به Thanos ارسال می‌کند تا در ذخیره‌سازی‌های ابری (مانند S3) ذخیره شود.
+
+#### ۲. **استفاده از Alertmanager برای ارسال هشدار به Slack**
+```yaml
+# پیکربندی Alertmanager برای ارسال هشدار به Slack
+route:
+  receiver: 'slack-notifications'
+receivers:
+  - name: 'slack-notifications'
+    slack_configs:
+      - api_url: 'https://hooks.slack.com/services/...'
+        channel: '#alerts'
+```
+
+در این مثال، Alertmanager هشدارهای Prometheus را به یک کانال Slack ارسال می‌کند.
+
+#### ۳. **استفاده از Prometheus Remote Write برای ارسال داده‌ها به InfluxDB**
+```yaml
+# پیکربندی Prometheus برای ارسال داده‌ها به InfluxDB
+remote_write:
+  - url: "http://influxdb:8086/api/v1/prom/write?db=prometheus"
+```
+
+در این مثال، Prometheus داده‌ها را به InfluxDB ارسال می‌کند.
+
+---
+
+### **نتیجه:**
+‏Bridgeها در Prometheus نقش مهمی در ادغام این سیستم با سایر پلتفرم‌ها و ابزارها ایفا می‌کنند. این Bridgeها به Prometheus اجازه می‌دهند تا:
+- داده‌ها را به‌صورت بلندمدت ذخیره کند.
+- هشدارها را به سیستم‌های خارجی ارسال کند.
+- با سایر سیستم‌های مانیتورینگ ارتباط برقرار کند.
+- داده‌ها را به ابزارهای تجسمی مانند Grafana ارسال کند.
+
+با استفاده از Bridgeها، می‌توان قابلیت‌های Prometheus را گسترش داد و آن را به یک سیستم مانیتورینگ کامل و یکپارچه تبدیل کرد.
+
 
 ---
 

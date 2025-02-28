@@ -78,12 +78,15 @@
             "id": "145ed365e2f2e6c0",
             "type": "leaf",
             "state": {
-              "type": "excalidraw",
+              "type": "markdown",
               "state": {
-                "file": "Excalidraw/roadmap_prom.excalidraw"
+                "file": "Prometheus/3-Monitoring/Relabel/Relabel.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
               },
-              "icon": "excalidraw-icon",
-              "title": "roadmap_prom"
+              "icon": "lucide-file",
+              "title": "Relabel"
             }
           }
         ],
@@ -232,19 +235,25 @@
   },
   "active": "5099dab323b69ec5",
   "lastOpenFiles": [
-    "src/bridge.png",
-    "Excalidraw/roadmap_prom.excalidraw",
+    "src/relabing3.png",
+    "src/relabling2.png",
+    "Prometheus/3-Monitoring/pushgateway.md",
+    "src/architecture.png",
     "Prometheus/3-Monitoring/Bridge/Prometheus Bridge.md",
+    "Prometheus/3-Monitoring/Relabel/Relabel.md",
+    "Prometheus/3-Monitoring/Relabel",
+    "README.md",
+    "Resource.md",
+    "Prometheus/3-Monitoring/Instrumentation.md",
+    "Excalidraw/roadmap_prom.excalidraw",
+    "src/bridge.png",
     "Prometheus/3-Monitoring/text_collector/readme.md",
     "Prometheus/3-Monitoring/Bridge/requirements.txt",
     "Prometheus/3-Monitoring/Bridge/prometheus_bridge.py",
     "Prometheus/3-Monitoring/Bridge/app.py",
     "Prometheus/3-Monitoring/Bridge",
     "Prometheus/3-Monitoring/Untitled.md",
-    "Prometheus/3-Monitoring/Instrumentation.md",
-    "Prometheus/3-Monitoring/pushgateway.md",
     "Prometheus/3-Monitoring/Exporting-server-app",
-    "Resource.md",
     "src/3Observability.png",
     "map.md",
     "Prometheus/1-introduction/1-introduction.md",
@@ -254,12 +263,10 @@
     "Prometheus/3-Monitoring/text_collector/TextCollect/Untitled",
     "Prometheus/3-Monitoring/text_collector.md",
     "Prometheus/3-Monitoring/text_collector/sample.py",
-    "Prometheus/3-Monitoring/text_collector/summary.py",
     "Prometheus/1-introduction/2-Getting_Start/install_by_docker.md",
     "Prometheus/1-introduction/2-Getting_Start/bareMetalDraw.md",
     "Prometheus/1-introduction/2-Getting_Start/2_bare_metal_install.md",
     "Prometheus/1-introduction/2-Getting_Start/1_init_Virtual_Machine.md",
-    "README.md",
     "Prometheus/1-introduction/1-1-What_Is_Prometheus/a-What_Is_Prometheus.md",
     "Prometheus/1-introduction/1-1-What_Is_Prometheus/c-glossary.md",
     "Prometheus/1-introduction/1-1-What_Is_Prometheus/b-Architect.md",
@@ -268,15 +275,11 @@
     "src/counter.png",
     "src/sampleTimeSeries.png",
     "src/tsdbKind.png",
-    "src/4goldenSignal.png",
-    "src/histogram.png",
-    "src/time_series.png",
     "concept.md",
     "Prometheus/1-introduction/vm-config.md",
     "service_discovery.md",
     "Welcome.md",
     "Excalidraw/RoadMap_prom_desk.excalidraw.md",
-    "Excalidraw/Drawing 2024-11-20 21.11.21.excalidraw.md",
-    "Excalidraw/Drawing 2024-11-16 23.49.33.excalidraw.md"
+    "Excalidraw/Drawing 2024-11-20 21.11.21.excalidraw.md"
   ]
 }
