@@ -1,7 +1,7 @@
 {
   "cssTheme": "",
   "accentColor": "#3bff38",
-  "baseFontSize": 16,
+  "baseFontSize": 18,
   "baseFontSizeAction": false,
   "showRibbon": true,
   "theme": "obsidian"

@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Prometheus/3-Monitoring/Infrastructure-monitoring/Node-Exporter/Node-exporter-fa.md",
+                "file": "Prometheus/3-Monitoring/Infrastructure-monitoring/Grok-exporter/Grok-exporter.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Node-exporter-fa"
+              "title": "Grok-exporter"
             }
           }
         ]
@@ -79,7 +79,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 329.5110321044922
+    "width": 426.5110321044922
   },
   "right": {
     "id": "3ae74d23c30d9587",
@@ -167,18 +167,20 @@
   },
   "active": "145ed365e2f2e6c0",
   "lastOpenFiles": [
-    "Prometheus/3-Monitoring/Infrastructure-monitoring/Node-Exporter/ai-studio-fa.md",
-    "Prometheus/3-Monitoring/Infrastructure-monitoring/Node-Exporter/Node-exporter-fa.md",
-    "Prometheus/3-Monitoring/Infrastructure-monitoring/Node-Exporter/node-exporter-en.md",
-    "Prometheus/3-Monitoring/Application-monitoring/label/label_fa.md",
     "Excalidraw/roadmap_prom.excalidraw",
-    "Prometheus/3-Monitoring/Infrastructure-monitoring/Node-Exporter",
+    "Prometheus/3-Monitoring/Infrastructure-monitoring/Grok-exporter/Grok-exporter.md",
+    "Prometheus/3-Monitoring/Infrastructure-monitoring/Node-Exporter/Node-exporter-fa.md",
+    "Prometheus/3-Monitoring/Infrastructure-monitoring/Grok-exporter",
+    "Prometheus/3-Monitoring/Infrastructure-monitoring/Node-Exporter/Node-exporter-fa-old.md",
+    "Prometheus/3-Monitoring/Infrastructure-monitoring/postgres-exporter/postgres-exporter.md",
+    "Prometheus/3-Monitoring/Infrastructure-monitoring/blackbox-Exporter/blackbox-Exporter.md",
+    "Prometheus/3-Monitoring/Application-monitoring/label/label_fa.md",
+    "Prometheus/3-Monitoring/Infrastructure-monitoring/Node-Exporter/node-exporter-en.md",
     "Prometheus/3-Monitoring/Application-monitoring/label/label_en.md",
+    "Prometheus/3-Monitoring/Infrastructure-monitoring/Node-Exporter",
     "Prometheus/3-Monitoring/Infrastructure-monitoring/GPU-exporter/Gpu-Exporter.md",
     "Prometheus/3-Monitoring/Application-monitoring/label",
-    "Prometheus/3-Monitoring/Infrastructure-monitoring/postgres-exporter/postgres-exporter.md",
     "Prometheus/3-Monitoring/Infrastructure-monitoring/postgres-exporter",
-    "Prometheus/3-Monitoring/Infrastructure-monitoring/blackbox-Exporter/blackbox-Exporter.md",
     "src/example_blackbox.png",
     "Prometheus/3-Monitoring/Infrastructure-monitoring/GPU-exporter",
     "src/blackbox_servers.png",
@@ -202,7 +204,6 @@
     "Prometheus/3-Monitoring/Application-monitoring/Instrumentation.md",
     "src/bridge.png",
     "Prometheus/3-Monitoring/Application-monitoring/text_collector/readme.md",
-    "Prometheus/3-Monitoring/Application-monitoring/Bridge/requirements.txt",
     "Prometheus/3-Monitoring/Untitled.md",
     "src/3Observability.png",
     "map.md",
@@ -210,8 +211,6 @@
     "src/collectFile.png",
     "Prometheus/3-Monitoring/text_collector.md",
     "Prometheus/1-introduction/2-Getting_Start/install_by_docker.md",
-    "Prometheus/1-introduction/2-Getting_Start/bareMetalDraw.md",
-    "Prometheus/1-introduction/2-Getting_Start/2_bare_metal_install.md",
-    "Prometheus/1-introduction/2-Getting_Start/1_init_Virtual_Machine.md"
+    "Prometheus/1-introduction/2-Getting_Start/bareMetalDraw.md"
   ]
 }
