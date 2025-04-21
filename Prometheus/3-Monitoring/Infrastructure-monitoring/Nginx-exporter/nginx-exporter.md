@@ -65,7 +65,7 @@ global:
 scrape_configs:
   - job_name: 'nginx'
     static_configs:
-      - targets: ['localhost:8080']
+      - targets: ['localhost:8089']
 ```
 
 ### Start Prometheus:
