@@ -13,16 +13,29 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Prometheus/3-Monitoring/Infrastructure-monitoring/write-exporter/write-exporter.md",
+                "file": "Prometheus/3-Monitoring/Infrastructure-monitoring/Kubernetes/kubernetes.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "write-exporter"
+              "title": "kubernetes"
+            }
+          },
+          {
+            "id": "fbf785108b7857ee",
+            "type": "leaf",
+            "state": {
+              "type": "image",
+              "state": {
+                "file": "src/loki-architect.png"
+              },
+              "icon": "lucide-image",
+              "title": "loki-architect"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -79,7 +92,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 426.5110321044922
+    "width": 200
   },
   "right": {
     "id": "3ae74d23c30d9587",
@@ -161,18 +174,30 @@
       "canvas:Create new canvas": false,
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
-      "command-palette:Open command palette": false
+      "command-palette:Open command palette": false,
+      "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "145ed365e2f2e6c0",
+  "active": "5099dab323b69ec5",
   "lastOpenFiles": [
-    "Prometheus/3-Monitoring/Infrastructure-monitoring/write-exporter/book.md",
+    "src/Pasted image 20250424161049.png",
+    "src/loki-architect.png",
+    "src/Pasted image 20250424161044.png",
+    "src/loki_detail.png",
+    "src/prometheusKuber.png",
+    "src/cadvisor.png",
+    "src/3Observability.png",
+    "Prometheus/3-Monitoring/Infrastructure-monitoring/Kubernetes/kubernetes.md",
+    "Excalidraw/roadmap_prom.excalidraw",
+    "Prometheus/3-Monitoring/Infrastructure-monitoring/Kubernetes",
+    "Prometheus/3-Monitoring/Infrastructure-monitoring/Docker-cAdvisor/Cadvisor.md",
+    "Prometheus/3-Monitoring/Infrastructure-monitoring/Docker-cAdvisor",
     "Prometheus/3-Monitoring/Infrastructure-monitoring/write-exporter/write-exporter.md",
+    "Prometheus/3-Monitoring/Infrastructure-monitoring/write-exporter/book.md",
     "Prometheus/3-Monitoring/Infrastructure-monitoring/Golang-exporter/golang-Exporter.md",
     "Prometheus/3-Monitoring/Infrastructure-monitoring/write-exporter",
     "src/goMonitor.png",
     "Prometheus/3-Monitoring/Infrastructure-monitoring/Nginx-exporter/nginx-exporter.md",
-    "Excalidraw/roadmap_prom.excalidraw",
     "Prometheus/3-Monitoring/Infrastructure-monitoring/Golang-exporter/main.go",
     "Prometheus/3-Monitoring/Infrastructure-monitoring/Golang-exporter/Untitled",
     "Prometheus/3-Monitoring/Infrastructure-monitoring/blackbox-Exporter/blackbox-Exporter.md",
@@ -189,28 +214,17 @@
     "Prometheus/3-Monitoring/Application-monitoring/label/label_en.md",
     "Prometheus/3-Monitoring/Infrastructure-monitoring/Node-Exporter",
     "Prometheus/3-Monitoring/Infrastructure-monitoring/GPU-exporter/Gpu-Exporter.md",
-    "Prometheus/3-Monitoring/Application-monitoring/label",
-    "Prometheus/3-Monitoring/Infrastructure-monitoring/postgres-exporter",
     "src/example_blackbox.png",
     "src/blackbox_servers.png",
-    "src/blackbox.png",
     "Prometheus/3-Monitoring/Application-monitoring/Relabel/Relabel.md",
     "Prometheus/3-Monitoring/Application-monitoring/Relabel/promlabs.md",
     "Prometheus/1-introduction/2-Getting_Start/3_docker_install.md",
     "Prometheus/3-Monitoring/Application-monitoring/Bridge/Prometheus Bridge.md",
     "Untitled.md",
-    "src/relabela.png",
-    "src/relabing3.png",
-    "src/relabling2.png",
     "Prometheus/3-Monitoring/Application-monitoring/pushgateway.md",
-    "src/architecture.png",
     "README.md",
     "Resource.md",
     "Prometheus/3-Monitoring/Application-monitoring/Instrumentation.md",
-    "src/bridge.png",
-    "Prometheus/3-Monitoring/Application-monitoring/text_collector/readme.md",
-    "Prometheus/3-Monitoring/Untitled.md",
-    "map.md",
-    "Prometheus/1-introduction/1-introduction.md"
+    "Prometheus/3-Monitoring/Application-monitoring/text_collector/readme.md"
   ]
 }
