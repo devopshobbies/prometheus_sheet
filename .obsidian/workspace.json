@@ -26,12 +26,15 @@
             "id": "fbf785108b7857ee",
             "type": "leaf",
             "state": {
-              "type": "image",
+              "type": "markdown",
               "state": {
-                "file": "src/loki-architect.png"
+                "file": "Prometheus/3-Monitoring/Infrastructure-monitoring/Kubernetes/kubernetes.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
               },
-              "icon": "lucide-image",
-              "title": "loki-architect"
+              "icon": "lucide-file",
+              "title": "kubernetes"
             }
           }
         ],
@@ -174,26 +177,26 @@
       "canvas:Create new canvas": false,
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
-      "command-palette:Open command palette": false,
-      "obsidian-excalidraw-plugin:Create new drawing": false
+      "command-palette:Open command palette": false
     }
   },
-  "active": "5099dab323b69ec5",
+  "active": "fbf785108b7857ee",
   "lastOpenFiles": [
-    "src/Pasted image 20250424161049.png",
+    "Prometheus/3-Monitoring/Infrastructure-monitoring/Docker-cAdvisor/Cadvisor.md",
+    "Prometheus/3-Monitoring/Infrastructure-monitoring/write-exporter/book.md",
+    "Prometheus/3-Monitoring/Infrastructure-monitoring/write-exporter/write-exporter.md",
+    "Excalidraw/roadmap_prom.excalidraw",
+    "Prometheus/3-Monitoring/Infrastructure-monitoring/write-exporter/main.go",
     "src/loki-architect.png",
+    "src/Pasted image 20250424161049.png",
     "src/Pasted image 20250424161044.png",
     "src/loki_detail.png",
     "src/prometheusKuber.png",
     "src/cadvisor.png",
     "src/3Observability.png",
     "Prometheus/3-Monitoring/Infrastructure-monitoring/Kubernetes/kubernetes.md",
-    "Excalidraw/roadmap_prom.excalidraw",
     "Prometheus/3-Monitoring/Infrastructure-monitoring/Kubernetes",
-    "Prometheus/3-Monitoring/Infrastructure-monitoring/Docker-cAdvisor/Cadvisor.md",
     "Prometheus/3-Monitoring/Infrastructure-monitoring/Docker-cAdvisor",
-    "Prometheus/3-Monitoring/Infrastructure-monitoring/write-exporter/write-exporter.md",
-    "Prometheus/3-Monitoring/Infrastructure-monitoring/write-exporter/book.md",
     "Prometheus/3-Monitoring/Infrastructure-monitoring/Golang-exporter/golang-Exporter.md",
     "Prometheus/3-Monitoring/Infrastructure-monitoring/write-exporter",
     "src/goMonitor.png",
@@ -212,10 +215,8 @@
     "Prometheus/3-Monitoring/Application-monitoring/label/label_fa.md",
     "Prometheus/3-Monitoring/Infrastructure-monitoring/Node-Exporter/node-exporter-en.md",
     "Prometheus/3-Monitoring/Application-monitoring/label/label_en.md",
-    "Prometheus/3-Monitoring/Infrastructure-monitoring/Node-Exporter",
     "Prometheus/3-Monitoring/Infrastructure-monitoring/GPU-exporter/Gpu-Exporter.md",
     "src/example_blackbox.png",
-    "src/blackbox_servers.png",
     "Prometheus/3-Monitoring/Application-monitoring/Relabel/Relabel.md",
     "Prometheus/3-Monitoring/Application-monitoring/Relabel/promlabs.md",
     "Prometheus/1-introduction/2-Getting_Start/3_docker_install.md",
