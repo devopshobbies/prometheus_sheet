@@ -1,4 +1,4 @@
-بسیار خب، در اینجا ترجمه متن به فارسی با حفظ واژگان فنی آورده شده است:
+
 
 ‏`Prometheus` یک زبان `query` تابعی به نام `PromQL` (`Prometheus Query Language`) ارائه می‌دهد که به کاربر اجازه می‌دهد داده‌های `time series` را در زمان واقعی انتخاب و `aggregate` کند.
 
@@ -18,6 +18,44 @@
 *   ‏`Range vector` - مجموعه‌ای از `time series` حاوی محدوده‌ای از نقاط داده در طول زمان برای هر `time series`.
 *   ‏`Scalar` - یک مقدار عددی ساده `floating point`.
 *   ‏`String` - یک مقدار `string` ساده؛ در حال حاضر استفاده نمی‌شود.
+
+
+```json
+curl 'http://localhost:9090/api/v1/query' \
+  --data 'query=http_requests_total{code="200"}' \
+  --data time=1608481001
+{
+  "metric": {"__name__": "http_requests_total", "code": "200"},
+  "value": [1608481001, "881"]
+}
+```
+
+![[instantVec2.png]]
+
+
+
+![[instantVector.png]]
+
+
+```json
+curl 'http://localhost:9090/api/v1/query' \
+  --data 'query=http_requests_total{code="200"}[30s]' \
+  --data time=1608481001
+{
+  "metric": {"__name__": "http_requests_total", "code": "200"},
+  "values": [
+    [1608480978, "863"],
+    [1608480986, "874"],
+    [1608480094, "881"]
+  ]
+}
+```
+
+
+![[ReangeVec.png]]
+
+
+![[RangeVector2.png]]
 
 بسته به مورد استفاده (مثلاً هنگام ترسیم `graph` در مقابل نمایش خروجی یک `expression`)، فقط برخی از این انواع به عنوان نتیجه یک `expression` مشخص شده توسط کاربر مجاز هستند. برای `instant queries`، هر یک از انواع داده بالا به عنوان ریشه `expression` مجاز است. `Range queries` فقط از `expression`های نوع `scalar` و `instant-vector` پشتیبانی می‌کنند.
 
