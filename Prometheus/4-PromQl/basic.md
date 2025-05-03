@@ -116,15 +116,15 @@ NaN
 0x_53_AB_F3_82
 ```
 
-`Float literals` همچنین برای مشخص کردن `durations` بر حسب ثانیه استفاده می‌شوند. برای راحتی، اعداد `integer` `decimal` ممکن است با `time units` زیر ترکیب شوند:
+‏`Float literals` همچنین برای مشخص کردن `durations` بر حسب ثانیه استفاده می‌شوند. برای راحتی، اعداد `integer` `decimal` ممکن است با `time units` زیر ترکیب شوند:
 
-*   `ms` – milliseconds
-*   `s` – seconds – 1s برابر است با 1000ms
-*   `m` – minutes – 1m برابر است با 60s (نادیده گرفتن leap seconds)
-*   `h` – hours – 1h برابر است با 60m
-*   `d` – days – 1d برابر است با 24h (نادیده گرفتن daylight saving time)
-*   `w` – weeks – 1w برابر است با 7d
-*   `y` – years – 1y برابر است با 365d (نادیده گرفتن leap days)
+* ‏  `ms` – milliseconds
+* ‏  `s` – seconds – 1s برابر است با 1000ms
+* ‏  `m` – minutes – 1m برابر است با 60s (نادیده گرفتن leap seconds)
+* ‏  `h` – hours – 1h برابر است با 60m
+* ‏  `d` – days – 1d برابر است با 24h (نادیده گرفتن daylight saving time)
+* ‏  `w` – weeks – 1w برابر است با 7d
+* ‏  `y` – years – 1y برابر است با 365d (نادیده گرفتن leap days)
 
 افزودن پسوند یکی از واحدهای بالا به یک عدد `integer` `decimal`، نمایش متفاوتی از معادل تعداد ثانیه به عنوان یک `float literal` خالی است.
 
@@ -184,7 +184,7 @@ http_requests_total{job="prometheus",group="canary"}
 *   `=~`: انتخاب `labels` که با `regex` با `string` ارائه شده مطابقت دارند.
 *   `!~`: انتخاب `labels` که با `regex` با `string` ارائه شده مطابقت ندارند.
 
-تطابق‌های `Regex` کاملاً `anchored` هستند. تطابق `env=~"foo"` به عنوان `env=~"^foo$"` در نظر گرفته می‌شود.
+تطابق‌های `Regex` کاملاً `anchored` هستند. تطابق `"env=~"foo` به عنوان `"$env=~"^foo` در نظر گرفته می‌شود.
 
 به عنوان مثال، این مورد تمام `time series`های `http_requests_total` را برای محیط‌های `staging`، `testing` و `development` و `HTTP methods` غیر از `GET` انتخاب می‌کند.
 
@@ -203,7 +203,8 @@ http_requests_total{replica="rep-b"}
 http_requests_total{environment="development"}
 ```
 
-`query` `http_requests_total{environment=""}` مطابقت داده و بازمی‌گرداند:
+`query` `http_requests_total{environment=""}` 
+مطابقت داده و بازمی‌گرداند:
 
 ```
 http_requests_total
@@ -231,7 +232,7 @@ http_requests_total{replica!="rep-a",replica=~"rep.*"}
 http_requests_total{replica="rep-b"}
 ```
 
-`Vector selectors` باید یا یک نام مشخص کنند یا حداقل یک `label matcher` که با `string` خالی مطابقت نداشته باشد. `expression` زیر غیرقانونی است:
+‏`Vector selectors` باید یا یک نام مشخص کنند یا حداقل یک `label matcher` که با `string` خالی مطابقت نداشته باشد. `expression` زیر غیرقانونی است:
 
 ```promql
 {job=~".*"} # Bad!
