@@ -1,11 +1,10 @@
 
 
-‏`PromQL` زبان `Query Language` مربوط به `Prometheus` است. با اینکه به QL ختم می‌شود، متوجه خواهید شد که زبانی شبیه `SQL` نیست، زیرا زبان‌های `SQL` معمولاً قدرت بیانی کافی برای انجام محاسباتی که روی `time series` (سری‌های زمانی) انجام می‌دهید را ندارند. `Labels` (برچسب‌ها) بخش کلیدی `PromQL` هستند و می‌توانید از آن‌ها نه تنها برای انجام `aggregations` (تجمیع‌های) دلخواه، بلکه برای پیوند دادن `metrics` مختلف به یکدیگر جهت انجام `arithmetic operations` (عملیات حسابی) روی آن‌ها استفاده کنید. طیف گسترده‌ای از توابع از `prediction` (پیش‌بینی) گرفته تا توابع `date` (تاریخ) و `math functions` (ریاضی) در دسترس شما هستند.
-این فصل شما را با مفاهیم پایه `PromQL`، شامل `aggregation` (تجمیع)، `basic types` (انواع پایه) و `HTTP API` آشنا می‌کند.
+‏
 
 ### مبانی Aggregation
 
-بیایید با چند کوئری `aggregation` ساده شروع کنیم. این کوئری‌ها احتمالاً بیشتر کاربردهای بالقوه شما از `PromQL` را پوشش می‌دهند. اگرچه `PromQL` تا حد امکان قدرتمند است،¹ در بیشتر مواقع نیازهای شما نسبتاً ساده خواهند بود.
+بیایید با چند کوئری `aggregation` ساده شروع کنیم. این کوئری‌ها احتمالاً بیشتر کاربردهای بالقوه شما از `PromQL` را پوشش می‌دهند. اگرچه `PromQL` تا حد امکان قدرتمند است، در بیشتر مواقع نیازهای شما نسبتاً ساده خواهند بود.
 
 ## Gauge
 ‏`Gauges` تصویری لحظه‌ای (`snapshot`) از وضعیت (`state`) هستند و معمولاً هنگام تجمیع (`aggregating`) آن‌ها، می‌خواهید `sum` (مجموع)، `average` (میانگین)، `minimum` (کمینه) یا `maximum` (بیشینه) آن‌ها را بگیرید.
@@ -14,7 +13,7 @@
 
 `sum without(device, fstype, mountpoint)(node_filesystem_size_bytes)`
 
-این کار می‌کند زیرا `without` به `aggregator` تابع `sum` می‌گوید که همه چیز را با `labels` یکسان جمع کند و آن سه `label` مشخص شده را نادیده بگیرد. بنابراین اگر `time series` زیر را داشتید:
+این مورد به درستی کار می‌کند زیرا `without` به `aggregator` تابع `sum` می‌گوید که همه چیز را با `labels` یکسان جمع کند و آن سه `label` مشخص شده را نادیده بگیرد. بنابراین اگر `time series` زیر را داشتید:
 ```
 node_filesystem_free_bytes{device="/dev/sda1",fstype="vfat",
 instance="localhost:9100",job="node",mountpoint="/boot/efi"} 70300672
@@ -46,11 +45,11 @@ instance="localhost:9100",job="node",mountpoint="/run/user/1000"} 826912768
 
 `max without(device, fstype, mountpoint)(node_filesystem_size_bytes)`
 
-`labels` خروجی دقیقاً مشابه زمانی است که با استفاده از `sum` تجمیع کردید:
+‏`labels` خروجی دقیقاً مشابه زمانی است که با استفاده از `sum` تجمیع کردید:
 
 `{instance="localhost:9100",job="node"} 30792601600`
 
-این قابل پیش‌بینی بودن در مورد اینکه کدام `labels` بازگردانده می‌شوند، برای تطبیق `vector` (`vector matching`) با `operators` مهم است، همانطور که در فصل ۱۵ بحث خواهد شد.
+این قابل پیش‌بینی بودن در مورد اینکه کدام `labels` بازگردانده می‌شوند، برای تطبیق `vector` (`vector matching`) با `operators` مهم است، همانطور که دردر گذشته بحث خواهد شد.
 
 شما محدود به تجمیع `metrics` درباره یک نوع `job` نیستید. به عنوان مثال، برای یافتن میانگین تعداد `file descriptors` باز در تمام `job`های خود، می‌توانید از دستور زیر استفاده کنید:
 
@@ -224,47 +223,24 @@ sum without(instance)(rate(prometheus_tsdb_compaction_duration_count[1d]))
 این `negative equality matcher` است؛ به عنوان مثال، `job!="node"`. با این کار می‌توانید مشخص کنید که `time series` بازگشتی نام `label` با مقدار دقیق `label` داده شده را نداشته باشند.
 
 =~
-این `regular expression matcher` است؛ به عنوان مثال، `job=~"n.*"`. با این کار مشخص می‌کنید که برای `time series` بازگشتی، مقدار `label` داده شده با `regular expression` (عبارت منظم) مطابقت داشته باشد. `regular expression` کاملاً `anchored` (مهار شده) است، به این معنی که `regular expression` `a` فقط با رشته `a` مطابقت دارد و نه `xa` یا `ax`. اگر این رفتار را نمی‌خواهید، می‌توانید پیشوند یا پسوند `.*` را به `regular expression` خود اضافه کنید.⁶ همانند `relabeling`، از موتور `regular expression` `RE2` استفاده می‌شود، همانطور که در "Regular Expressions" در صفحه ۱۵۲ پوشش داده شده است.
+این `regular expression matcher` است؛ به عنوان مثال، `job=~"n.*"`. با این کار مشخص می‌کنید که برای `time series` بازگشتی، مقدار `label` داده شده با `regular expression` (عبارت منظم) مطابقت داشته باشد. `regular expression` کاملاً `anchored` (مهار شده) است، به این معنی که `regular expression` `a` فقط با رشته `a` مطابقت دارد و نه `xa` یا `ax`. اگر این رفتار را نمی‌خواهید، می‌توانید پیشوند یا پسوند `.*` را به `regular expression` خود اضافه کنید.⁶ همانند `relabeling`، از موتور `regular expression` `RE2` استفاده می‌شود، همانطور که در "Regular Expressions" قبلا پوشش داده شده است.
 
 !~
 این `negative regular expression matcher` است. `RE2` از عبارات `negative lookahead` پشتیبانی نمی‌کند، بنابراین این روش جایگزینی برای حذف مقادیر `label` بر اساس یک `regular expression` به شما ارائه می‌دهد. می‌توانید چندین `matcher` با نام `label` یکسان در یک `selector` داشته باشید که می‌تواند جایگزینی برای عبارات `negative lookahead` باشد. به عنوان مثال، برای یافتن اندازه تمام فایل‌سیستم‌های `mount` شده زیر `/run` اما نه `/run/user`، می‌توانید از دستور زیر استفاده کنید:
 `node_filesystem_size_bytes{job="node",mountpoint=~"/run/.*",mountpoint!~"/run/user/.*"}`
 
-در داخل، نام `metric` در یک `label` به نام `__name__` ذخیره می‌شود (همانطور که در "Reserved Labels and __name__" در صفحه ۹۰ بحث شد)، بنابراین `process_resident_memory_bytes{job="node"}` یک `syntactic sugar` برای `{name="process_resident_memory_bytes",job="node"}` است. حتی می‌توانید روی نام `metric` از `regular expressions` استفاده کنید، اما این کار خارج از زمانی که در حال `debugging` (اشکال‌زدایی) `performance` (عملکرد) سرور `Prometheus` هستید، هوشمندانه نیست.
+در داخل، نام `metric` در یک `label` به نام `__name__` ذخیره می‌شود (همانطور که در "Reserved Labels and __name__" در گذشته بحث شد)، بنابراین `process_resident_memory_bytes{job="node"}` یک `syntactic sugar` برای `{name="process_resident_memory_bytes",job="node"}` است. حتی می‌توانید روی نام `metric` از `regular expressions` استفاده کنید، اما این کار خارج از زمانی که در حال `debugging` (اشکال‌زدایی) `performance` (عملکرد) سرور `Prometheus` هستید، هوشمندانه نیست.
 
 نیاز به استفاده از `regular expression matchers` کمی نشانه خوبی نیست. اگر متوجه شدید که زیاد از آن‌ها روی یک `label` خاص استفاده می‌کنید، در نظر بگیرید که آیا باید مقادیر `label` تطبیق داده شده را در یک مقدار ترکیب کنید. به عنوان مثال، برای کدهای وضعیت `HTTP` به جای انجام `code~="4.."` برای گرفتن 401ها، 404ها، 405ها و غیره، ممکن است آن‌ها را در یک مقدار `label` `4xx` ترکیب کنید و از `equality matcher` `code="4xx"` استفاده کنید.
 
 ‏`selector` `{}` یک `error` برمی‌گرداند که یک اقدام ایمنی (`safety measure`) برای جلوگیری از بازگرداندن تصادفی تمام `time series`های داخل سرور `Prometheus` است زیرا این کار می‌تواند پرهزینه باشد. به طور دقیق‌تر، حداقل یکی از `matchers` در یک `selector` نباید با رشته خالی مطابقت داشته باشد. بنابراین `{foo=""}` و `{foo=~".*"}` یک `error` برمی‌گردانند، در حالی که `{foo="",bar="x"}`, `{foo!=""}` یا `{foo=~".+"}` مجاز هستند.
 
-## Instant Vector
 
-یک `instant vector selector` یک `instant vector` از جدیدترین `samples` قبل از زمان ارزیابی کوئری (`query evaluation time`) را برمی‌گرداند، یعنی لیستی از صفر یا چند `time series`. هر یک از این `time series`ها یک `sample` خواهند داشت و یک `sample` هم مقدار و هم `timestamp` را در بر می‌گیرد. در حالی که `instant vector` بازگشتی توسط یک `instant vector selector` دارای `timestamp` داده اصلی است،⁹ هر `instant vector` بازگشتی توسط عملیات یا توابع دیگر، `timestamp` زمان ارزیابی کوئری را برای تمام مقادیر خود خواهد داشت.
-
-هنگامی که استفاده فعلی حافظه را درخواست می‌کنید، نمی‌خواهید `samples` از یک `instance` که روزها پیش خاموش شده است، شامل شود، مفهومی که به عنوان `staleness` (کهنگی) شناخته می‌شود. در Prometheus 1.x این کار با برگرداندن `time series`هایی انجام می‌شد که `sample` آن‌ها حداکثر ۵ دقیقه قبل از زمان ارزیابی کوئری بود. این تا حد زیادی کار می‌کرد اما معایبی مانند شمارش مضاعف داشت اگر یک `instance` با `label` `instance` جدید در آن پنجره ۵ دقیقه‌ای راه‌اندازی مجدد می‌شد.
-
-‏Prometheus 2.x رویکرد پیچیده‌تری دارد. اگر یک `time series` از یک `scrape` به `scrape` بعدی ناپدید شود، یا اگر یک `target` دیگر از `service discovery` بازگردانده نشود، نوع خاصی از `sample` به نام `stale marker`¹⁰ (نشانگر کهنه) به `time series` اضافه می‌شود. هنگام ارزیابی یک `instant vector selector`، ابتدا تمام `time series`هایی که تمام `matchers` را برآورده می‌کنند پیدا می‌شوند و جدیدترین `sample` در ۵ دقیقه قبل از زمان ارزیابی کوئری همچنان در نظر گرفته می‌شود. اگر `sample` یک `sample` معمولی باشد، در `instant vector` بازگردانده می‌شود، اما اگر یک `stale marker` باشد، آن `time series` در آن `instant vector` گنجانده نخواهد شد. نتیجه همه اینها این است که وقتی از `instant vector selector` استفاده می‌کنید، `time series`هایی که `stale` (کهنه) شده‌اند، بازگردانده نمی‌شوند.
-
-اگر `exporter` ای دارید که `timestamps` را نمایش می‌دهد، همانطور که در "Timestamps" در صفحه ۸۲ توضیح داده شده است، `stale markers` و منطق `staleness` Prometheus 2.x اعمال نخواهد شد. `time series`های تحت تأثیر به جای آن با منطق قدیمی‌تر که ۵ دقیقه به عقب نگاه می‌کند، کار خواهند کرد.
-
-### Range Vector
-
-نوع دوم `selector` وجود دارد که قبلاً دیده‌اید و `range vector selector` نامیده می‌شود. برخلاف `instant vector selector` که یک `sample` برای هر `time series` برمی‌گرداند، یک `range vector selector` می‌تواند چندین `sample` برای هر `time series` برگرداند.¹¹ `Range vectors` همیشه با تابع `rate` استفاده می‌شوند، به عنوان مثال:
-
-`rate(process_cpu_seconds_total[1m])`
-
-‏`[1m]` `instant vector selector` را به `range vector selector` تبدیل می‌کند و به `PromQL` دستور می‌دهد تا برای تمام `time series`های مطابق با `selector`، تمام `samples` مربوط به دقیقه منتهی به زمان ارزیابی کوئری را برگرداند. اگر فقط `process_cpu_seconds_total[1m]` را در تب `Console` مرورگر `expression` اجرا کنید، چیزی شبیه شکل ۱۳-۱ خواهید دید.
-
-در این مورد، هر `time series` اتفاقاً شش `sample` در دقیقه گذشته دارد. متوجه خواهید شد که در حالی که `samples` برای هر `time series` اتفاقاً دقیقاً ۱۰ ثانیه از هم فاصله دارند¹² مطابق با فاصله `scrape` که پیکربندی کرده‌اید، `timestamps` دو `time series` با یکدیگر هم‌تراز نیستند. یک `time series` یک `sample` با `timestamp` 1517925155.087 دارد و دیگری 1517925156.245.
-
-شکل ۱۳-۱.
-
-این به این دلیل است که `range vectors` `timestamps` واقعی `samples` را حفظ می‌کنند و `scrapes` برای `targets` مختلف به منظور توزیع بار به طور مساوی‌تر، توزیع می‌شوند. در حالی که می‌توانید فرکانس `scrapes` و ارزیابی قوانین را کنترل کنید، نمی‌توانید `phase` یا `alignment` (ترازبندی) آن‌ها را کنترل کنید. اگر فاصله `scrape` ۱۰ ثانیه‌ای و صدها `target` دارید، تمام آن `target`ها در نقاط مختلف در یک پنجره ۱۰ ثانیه‌ای معین `scrape` خواهند شد. به عبارت دیگر، `time series`های شما همگی سن‌های کمی متفاوت دارند. این به طور کلی در عمل برای شما اهمیتی نخواهد داشت، اما می‌تواند منجر به `artifacts` (مصنوعات) شود زیرا اساساً سیستم‌های مانیتورینگ مبتنی بر `metrics` مانند `Prometheus` تخمین‌های (بسیار خوبی) به جای پاسخ‌های دقیق تولید می‌کنند.
-
-شما به ندرت به طور مستقیم به `range vectors` نگاه خواهید کرد. این فقط زمانی پیش می‌آید که برای `debugging` نیاز به دیدن `samples` خام دارید. تقریباً همیشه از `range vector` با تابعی مانند `rate` یا `avg_over_time` استفاده خواهید کرد که `range vector` را به عنوان آرگومان می‌گیرد. `Staleness` و `stale markers` تأثیری بر `range vectors` ندارند؛ شما تمام `samples` معمولی را در یک بازه معین دریافت خواهید کرد. هر `stale marker` دیگری نیز که در آن بازه باشد، توسط `range vector selector` بازگردانده نمی‌شود.
 
 ## Durations
 ‏`Durations` (مدت زمان‌ها) در `Prometheus` همانطور که در `PromQL` و فایل پیکربندی استفاده می‌شوند، از چندین واحد پشتیبانی می‌کنند. شما قبلاً `m` برای دقیقه را دیده‌اید.
-#### جدول شکل (Fig Table) - *محتوای جدول در متن اصلی ارائه نشده است، بنابراین ترجمه نمی‌شود.*
+
+![[pic14.png]]
 
 ### Subqueries
 
