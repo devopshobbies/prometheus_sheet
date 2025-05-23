@@ -11,12 +11,30 @@
             "id": "145ed365e2f2e6c0",
             "type": "leaf",
             "state": {
-              "type": "image",
+              "type": "markdown",
               "state": {
-                "file": "src/rateVsIrate.png"
+                "file": "Prometheus/4-PromQl/Aggregation/AggregaationFa.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
               },
-              "icon": "lucide-image",
-              "title": "rateVsIrate"
+              "icon": "lucide-file",
+              "title": "AggregaationFa"
+            }
+          },
+          {
+            "id": "02872eec95211001",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Prometheus/4-PromQl/binaryOperators/binatyOperationsFa.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
+              "icon": "lucide-file",
+              "title": "binatyOperationsFa"
             }
           },
           {
@@ -31,7 +49,8 @@
               "title": "rateVsIrate"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -174,16 +193,22 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "5099dab323b69ec5",
+  "active": "02872eec95211001",
   "lastOpenFiles": [
+    "Untitled.md",
+    "Prometheus/4-PromQl/binaryOperators/binatyOperationsFa.md",
     "Excalidraw/roadmap_prom.excalidraw",
-    "Prometheus/4-PromQl/basic/basic_section2.md",
+    "Prometheus/4-PromQl/binaryOperators/binaryOperators.md",
+    "Prometheus/4-PromQl/binaryOperators",
+    "src/logical_operand.png",
+    "Prometheus/4-PromQl/basic/basic.md",
+    "Prometheus/4-PromQl/Aggregation/AggregaationFa.md",
     "Prometheus/4-PromQl/Aggregation/AggregationEn.md",
     "src/rateVsIrate.png",
+    "Prometheus/4-PromQl/basic/basic_section2.md",
     "src/irate.png",
     "src/irate2.png",
     "src/irate3.png",
-    "Prometheus/4-PromQl/basic/basic.md",
     "Prometheus/3-Monitoring/Infrastructure-monitoring/Kubernetes/kubernetes.md",
     "src/RangeVector2.png",
     "src/ReangeVec.png",
@@ -191,7 +216,6 @@
     "src/rate2.png",
     "src/rate.png",
     "Prometheus/4-PromQl/Aggregation",
-    "src/pic14.png",
     "Prometheus/4-PromQl/basic_book.md",
     "Prometheus/4-PromQl/basic",
     "README.md",
@@ -209,17 +233,12 @@
     "Prometheus/3-Monitoring/Infrastructure-monitoring/Golang-exporter/Untitled",
     "Prometheus/3-Monitoring/Infrastructure-monitoring/blackbox-Exporter/blackbox-Exporter.md",
     "Prometheus/3-Monitoring/Infrastructure-monitoring/Grok-exporter/Grok-exporter.md",
-    "Prometheus/3-Monitoring/Infrastructure-monitoring/Golang-exporter",
     "Prometheus/3-Monitoring/Infrastructure-monitoring/Node-Exporter/Node-exporter-fa.md",
     "Prometheus/3-Monitoring/Infrastructure-monitoring/Node-Exporter/Node-exporter-fa-old.md",
     "Prometheus/3-Monitoring/Infrastructure-monitoring/postgres-exporter/postgres-exporter.md",
     "Prometheus/3-Monitoring/Application-monitoring/label/label_fa.md",
     "Prometheus/3-Monitoring/Infrastructure-monitoring/Node-Exporter/node-exporter-en.md",
     "Prometheus/3-Monitoring/Application-monitoring/label/label_en.md",
-    "Prometheus/3-Monitoring/Infrastructure-monitoring/GPU-exporter/Gpu-Exporter.md",
-    "Prometheus/3-Monitoring/Application-monitoring/Relabel/Relabel.md",
-    "Prometheus/3-Monitoring/Application-monitoring/Relabel/promlabs.md",
-    "Prometheus/1-introduction/2-Getting_Start/3_docker_install.md",
-    "Prometheus/3-Monitoring/Application-monitoring/Bridge/Prometheus Bridge.md"
+    "Prometheus/3-Monitoring/Infrastructure-monitoring/GPU-exporter/Gpu-Exporter.md"
   ]
 }
