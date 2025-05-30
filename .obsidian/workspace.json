@@ -28,13 +28,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Prometheus/4-PromQl/Functions/functions.md",
+                "file": "Prometheus/4-PromQl/RecordingRules/RecordingRulesFa.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "functions"
+              "title": "RecordingRulesFa"
             }
           },
           {
@@ -195,8 +195,10 @@
   },
   "active": "02872eec95211001",
   "lastOpenFiles": [
+    "Prometheus/4-PromQl/RecordingRules/RecordingRules.md",
     "Excalidraw/roadmap_prom.excalidraw",
     "Prometheus/4-PromQl/Functions/functions.md",
+    "Prometheus/4-PromQl/RecordingRules",
     "Prometheus/4-PromQl/Functions",
     "Prometheus/4-PromQl/binaryOperators/binatyOperationsFa.md",
     "Untitled.md",
@@ -231,14 +233,12 @@
     "Prometheus/3-Monitoring/Infrastructure-monitoring/Golang-exporter/golang-Exporter.md",
     "Prometheus/3-Monitoring/Infrastructure-monitoring/write-exporter",
     "Prometheus/3-Monitoring/Infrastructure-monitoring/Nginx-exporter/nginx-exporter.md",
-    "Prometheus/3-Monitoring/Infrastructure-monitoring/Golang-exporter/main.go",
     "Prometheus/3-Monitoring/Infrastructure-monitoring/blackbox-Exporter/blackbox-Exporter.md",
     "Prometheus/3-Monitoring/Infrastructure-monitoring/Grok-exporter/Grok-exporter.md",
     "Prometheus/3-Monitoring/Infrastructure-monitoring/Node-Exporter/Node-exporter-fa.md",
     "Prometheus/3-Monitoring/Infrastructure-monitoring/Node-Exporter/Node-exporter-fa-old.md",
     "Prometheus/3-Monitoring/Infrastructure-monitoring/postgres-exporter/postgres-exporter.md",
     "Prometheus/3-Monitoring/Application-monitoring/label/label_fa.md",
-    "Prometheus/3-Monitoring/Infrastructure-monitoring/Node-Exporter/node-exporter-en.md",
-    "Prometheus/3-Monitoring/Application-monitoring/label/label_en.md"
+    "Prometheus/3-Monitoring/Infrastructure-monitoring/Node-Exporter/node-exporter-en.md"
   ]
 }
