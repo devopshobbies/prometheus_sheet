@@ -5,7 +5,7 @@ This document provides a structured guide to learning **Prometheus**, a powerful
 see this video in Farsi --> [Prometheus Learning_Farsi]([https://prometheus.io/download/](https://www.aparat.com/v/psc074x)). 
 
 
-
+![image](./src/roadMap.png)
 
 #### قسمت ۱ معرفی مقدماتی
 در این قسمت با دنیای مانیتورینگ و ابزار قدرتمند Prometheus آشنا می‌شویم.
