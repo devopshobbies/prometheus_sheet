@@ -1,7 +1,7 @@
 # Enhanced Goroutine Scaling App with Prometheus Metrics
 
 
-![[goMonitor.png]]
+![image](src/goMonitor.png)
 
 Here's the improved version that adds Prometheus metrics to monitor:
 - Current goroutine count

@@ -9,10 +9,10 @@ https://github.com/DannyRavi/cloud_software_farsi/blob/main/docs/Health%20Endpoi
 ### **Blackbox Exporter چیست؟**  
 ‏**Blackbox Exporter** یک ابزار متنباز (Open-Source) از اکوسیستم **Prometheus** است که برای **مانیتورینگ خارجی (External Monitoring)** سرویسها استفاده میشود. برخلاف **exporterهای معمولی** (مثل Node Exporter که متریکهای داخلی سیستم را جمعآوری میکند)، Blackbox Exporter از **خارج سیستم** به سرویسها **پروب (Probe)** میزند و سلامت آنها را بررسی میکند.
 
-![[blackbox.png]]
+![image](src/blackbox.png)
 
-![[blackbox_servers.png]]
----
+![image](src/blackbox_servers.png)
+
 
 ### **کاربرد Blackbox Exporter**  
 این ابزار برای چک کردن **در دسترس بودن (Availability)** و **عملکرد (Performance)** سرویسهای مختلف از طریق پروتکلهای زیر استفاده میشود:  
@@ -68,7 +68,7 @@ https://github.com/DannyRavi/cloud_software_farsi/blob/main/docs/Health%20Endpoi
 
 مثال:
 
-![[example_blackbox.png]]
+![image](src/example_blackbox.png)
 
 ---
 

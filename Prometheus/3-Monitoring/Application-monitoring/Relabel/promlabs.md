@@ -23,7 +23,7 @@
 
 
 
-![[src/relabela.png]]
+![image](src/relabela.png)
 
 
 
@@ -52,12 +52,12 @@
 | **Samples written to remote storage systems**  | `write_relabel_configs` section in the [`remote_write`](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write) section              |
 
 
-![[src/relabling2.png]]
+![image](src/relabling2.png)
 تمام این بخش‌های مختلف پیکربندی relabeling از یک نوع هستند: `relabel_config`.
 
 یک بخش پیکربندی relabeling شامل لیستی از قوانینی است که به ترتیب بر روی هر object برچسب‌دار اعمال می‌شوند. هر قانون در زنجیره ممکن است یک object برچسب‌دار را اصلاح یا حذف کند:
 
-![[relabing3.png]]
+![image](src/relabing3.png)
 
 برای مثال، یک relabeling rule ممکن است یک object را بر اساس مطابقت یک regular expression نگه دارد یا حذف کند، ممکن است برچسب‌های آن را تغییر دهد، یا ممکن است مجموعه‌ای کامل از برچسب‌ها را به مجموعه‌ای دیگر نگاشت کند. هنگامی که یک مرحله relabeling تصمیم به حذف یک object برچسب‌دار می‌گیرد، هیچ مرحله relabeling دیگری برای این object اجرا نمی‌شود و از لیست خروجی حذف می‌شود (برای مثال، برای یک هدف، این به معنای آن است که scrape نخواهد شد).
 
