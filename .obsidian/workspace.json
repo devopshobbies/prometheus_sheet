@@ -4,41 +4,25 @@
     "type": "split",
     "children": [
       {
-        "id": "2d52aac7e5247fbd",
+        "id": "4fc755e2af86bc5b",
         "type": "tabs",
         "children": [
           {
-            "id": "02872eec95211001",
+            "id": "4fef50a0059ff599",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Prometheus/4-PromQl/Functions/functions.md",
+                "file": "README.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "functions"
-            }
-          },
-          {
-            "id": "582fc8028638985a",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Prometheus/4-PromQl/Functions/func2.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
-              },
-              "icon": "lucide-file",
-              "title": "func2"
+              "title": "README"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -95,8 +79,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 200
   },
   "right": {
     "id": "3ae74d23c30d9587",
@@ -173,6 +156,7 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "bases:Create new base": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
@@ -182,23 +166,39 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "582fc8028638985a",
+  "active": "4fef50a0059ff599",
   "lastOpenFiles": [
+    "Resource.md",
+    "src/roadMap.png",
+    "README.md",
+    "Untitled 1.base",
+    "Untitled.base",
+    "Excalidraw/roadmap_prom.excalidraw",
+    "Prometheus/1-introduction/1-1-What_Is_Prometheus/c-glossary.md",
+    "Prometheus/1-introduction/1-1-What_Is_Prometheus/b-Architect.md",
+    "Prometheus/1-introduction/1-1-What_Is_Prometheus/a-What_Is_Prometheus.md",
+    "Prometheus/3-Monitoring/Application-monitoring/pushgateway.md",
+    "Prometheus/3-Monitoring/Application-monitoring/Instrumentation.md",
+    "Prometheus/3-Monitoring/Application-monitoring/text_collector/readme.md",
+    "Prometheus/3-Monitoring/Application-monitoring/label/label_en.md",
+    "Prometheus/1-introduction/2-Getting_Start/bareMetalDraw.md",
+    "Prometheus/1-introduction/2-Getting_Start/install_by_docker.md",
+    "Prometheus/4-PromQl/RecordingRules/RecordingRules.md",
+    "Prometheus/4-PromQl/RecordingRules/RecordingRulesFa.md",
     "Prometheus/4-PromQl/Functions/functions.md",
     "Prometheus/4-PromQl/Functions/func2.md",
+    "Prometheus/4-PromQl/binaryOperators/binatyOperationsFa.md",
+    "Prometheus/4-PromQl/binaryOperators/binaryOperators.md",
     "Prometheus/4-PromQl/Aggregation/AggregaationFa.md",
-    "Excalidraw/roadmap_prom.excalidraw",
-    "Prometheus/4-PromQl/RecordingRules/RecordingRulesFa.md",
-    "Prometheus/4-PromQl/RecordingRules/RecordingRules.md",
+    "Prometheus/4-PromQl/Aggregation/AggregationEn.md",
+    "Prometheus/3-Monitoring/Application-monitoring/Relabel/Relabel.md",
+    "Prometheus/3-Monitoring/Application-monitoring/Relabel/promlabs.md",
     "Prometheus/4-PromQl/RecordingRules",
     "Prometheus/4-PromQl/Functions",
-    "Prometheus/4-PromQl/binaryOperators/binatyOperationsFa.md",
     "Untitled.md",
-    "Prometheus/4-PromQl/binaryOperators/binaryOperators.md",
     "Prometheus/4-PromQl/binaryOperators",
     "src/logical_operand.png",
     "Prometheus/4-PromQl/basic/basic.md",
-    "Prometheus/4-PromQl/Aggregation/AggregationEn.md",
     "src/rateVsIrate.png",
     "Prometheus/4-PromQl/basic/basic_section2.md",
     "src/irate.png",
@@ -209,26 +209,9 @@
     "src/ReangeVec.png",
     "Pasted image 20250517000008.png",
     "src/rate2.png",
-    "src/rate.png",
     "Prometheus/4-PromQl/Aggregation",
-    "Prometheus/4-PromQl/basic_book.md",
     "Prometheus/4-PromQl/basic",
-    "README.md",
-    "src/map.md",
-    "Prometheus/3-Monitoring/Infrastructure-monitoring/Docker-cAdvisor/Cadvisor.md",
-    "Prometheus/3-Monitoring/Infrastructure-monitoring/write-exporter/book.md",
-    "Prometheus/3-Monitoring/Infrastructure-monitoring/write-exporter/write-exporter.md",
     "Prometheus/3-Monitoring/Infrastructure-monitoring/write-exporter/main.go",
-    "Prometheus/3-Monitoring/Infrastructure-monitoring/Kubernetes",
-    "Prometheus/3-Monitoring/Infrastructure-monitoring/Docker-cAdvisor",
-    "Prometheus/3-Monitoring/Infrastructure-monitoring/Golang-exporter/golang-Exporter.md",
-    "Prometheus/3-Monitoring/Infrastructure-monitoring/write-exporter",
-    "Prometheus/3-Monitoring/Infrastructure-monitoring/Nginx-exporter/nginx-exporter.md",
-    "Prometheus/3-Monitoring/Infrastructure-monitoring/blackbox-Exporter/blackbox-Exporter.md",
-    "Prometheus/3-Monitoring/Infrastructure-monitoring/Grok-exporter/Grok-exporter.md",
-    "Prometheus/3-Monitoring/Infrastructure-monitoring/Node-Exporter/Node-exporter-fa.md",
-    "Prometheus/3-Monitoring/Infrastructure-monitoring/Node-Exporter/Node-exporter-fa-old.md",
-    "Prometheus/3-Monitoring/Infrastructure-monitoring/postgres-exporter/postgres-exporter.md",
-    "Prometheus/3-Monitoring/Application-monitoring/label/label_fa.md"
+    "Prometheus/3-Monitoring/Infrastructure-monitoring/Kubernetes"
   ]
 }

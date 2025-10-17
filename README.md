@@ -25,17 +25,17 @@ see this video in Farsi --> [Prometheus Learning_Farsi]([https://prometheus.io/d
 
 سپس ساختار کلی سیستم را تحلیل می‌کنیم:
 
-- ‏**Prometheus Server**: قلب سیستم که مسئول جمع‌آوری (scrape) و ذخیره‌ی داده‌هاست.
+‏- ‏**Prometheus Server**: قلب سیستم که مسئول جمع‌آوری (scrape) و ذخیره‌ی داده‌هاست.
     
-- ‏**Time Series Database (TSDB)**: موتور ذخیره‌سازی که داده‌ها را به‌صورت سری زمانی نگه‌داری می‌کند.
+‏- ‏**Time Series Database (TSDB)**: موتور ذخیره‌سازی که داده‌ها را به‌صورت سری زمانی نگه‌داری می‌کند.
     
-- ‏**Service Discovery**: مکانیزمی برای شناسایی خودکار سرویس‌ها و هدف‌ها در محیط‌های پویا مثل Docker و Kubernetes.
+‏- ‏**Service Discovery**: مکانیزمی برای شناسایی خودکار سرویس‌ها و هدف‌ها در محیط‌های پویا مثل Docker و Kubernetes.
     
-- ‏**Exporters**: ابزارهایی که داده‌های متریک را از سرویس‌ها و سیستم‌ها به فرمت قابل فهم برای Prometheus تبدیل می‌کنند.
+‏- ‏**Exporters**: ابزارهایی که داده‌های متریک را از سرویس‌ها و سیستم‌ها به فرمت قابل فهم برای Prometheus تبدیل می‌کنند.
     
-- ‏**Alertmanager**: مؤلفه‌ای برای مدیریت هشدارها، گروه‌بندی و ارسال آن‌ها به کانال‌هایی مثل Email، Slack یا PagerDuty.
+‏- ‏**Alertmanager**: مؤلفه‌ای برای مدیریت هشدارها، گروه‌بندی و ارسال آن‌ها به کانال‌هایی مثل Email، Slack یا PagerDuty.
     
-- ‏**Pushgateway**: ابزاری برای ارسال متریک از سرویس‌های کوتاه‌عمر (مثل Jobها یا Cronها) به Prometheus.
+‏- ‏**Pushgateway**: ابزاری برای ارسال متریک از سرویس‌های کوتاه‌عمر (مثل Jobها یا Cronها) به Prometheus.
 
 ----------
 
@@ -46,15 +46,15 @@ see this video in Farsi --> [Prometheus Learning_Farsi]([https://prometheus.io/d
 ابتدا پیش‌نیازهای نصب مانند نسخه‌ی سیستم‌عامل، دسترسی کاربر، پورت‌ها و ساختار فایل‌های Prometheus را مرور می‌کنیم.  
 سپس به‌صورت گام‌به‌گام مراحل زیر را انجام می‌دهیم:
 
-1. **دانلود و نصب Prometheus** روی سیستم‌عامل لینوکس (Bare Metal).
+‏۱. **دانلود و نصب Prometheus** روی سیستم‌عامل لینوکس (Bare Metal).
     
-2. **آشنایی با فایل پیکربندی `prometheus.yml`** و ساختار آن.
+‏۲. **آشنایی با فایل پیکربندی `prometheus.yml`** و ساختار آن.
     
-3. **اضافه کردن Targetهای اولیه** برای مانیتور کردن خود Prometheus (self-monitoring).
+‏۳. **اضافه کردن Targetهای اولیه** برای مانیتور کردن خود Prometheus (self-monitoring).
     
-4. **اجرای سرویس Prometheus** به‌صورت دستی و سپس تنظیم آن به‌عنوان یک سرویس سیستم (systemd).
+‏۴. **اجرای سرویس Prometheus** به‌صورت دستی و سپس تنظیم آن به‌عنوان یک سرویس سیستم (systemd).
     
-5. **بررسی رابط وب (Web UI)** و مشاهده‌ی اولین متریک‌ها.
+‏۵. **بررسی رابط وب (Web UI)** و مشاهده‌ی اولین متریک‌ها.
     
 
 در طول این بخش یاد می‌گیریم چطور فایل پیکربندی را ویرایش کنیم، وظیفه‌ی هر بخش را درک کنیم، و در صورت بروز خطا، لاگ‌ها را بررسی و رفع مشکل کنیم.
@@ -70,17 +70,17 @@ see this video in Farsi --> [Prometheus Learning_Farsi]([https://prometheus.io/d
 در ابتدا توضیح می‌دهیم چرا استفاده از Docker می‌تواند نصب و به‌روزرسانی Prometheus را ساده‌تر، سریع‌تر و قابل‌انتقال‌تر کند.  
 سپس به‌صورت عملی مراحل زیر را انجام می‌دهیم:
 
-1. **آشنایی با Image رسمی Prometheus** در Docker Hub.
+‏۱. **آشنایی با Image رسمی Prometheus** در Docker Hub.
     
-2. **دانلود و اجرای کانتینر Prometheus** با استفاده از دستور `docker run`.
+‏۲. **دانلود و اجرای کانتینر Prometheus** با استفاده از دستور `docker run`.
     
-3. **نحوه‌ی Mount کردن فایل پیکربندی `prometheus.yml`** از روی سیستم میزبان داخل کانتینر.
+‏۳. **نحوه‌ی Mount کردن فایل پیکربندی `prometheus.yml`** از روی سیستم میزبان داخل کانتینر.
     
-4. **تنظیم Volume برای ذخیره‌ی داده‌ها (Persistent Storage)** تا پس از ری‌استارت اطلاعات از بین نرود.
+‏۴. **تنظیم Volume برای ذخیره‌ی داده‌ها (Persistent Storage)** تا پس از ری‌استارت اطلاعات از بین نرود.
     
-5. **بررسی پورت‌ها، Network Mode و دسترسی رابط وب** از طریق مرورگر.
+‏۵. **بررسی پورت‌ها، Network Mode و دسترسی رابط وب** از طریق مرورگر.
     
-6. در نهایت، **نحوه‌ی توقف، حذف و به‌روزرسانی کانتینر** را مرور می‌کنیم.
+‏۶. در نهایت، **نحوه‌ی توقف، حذف و به‌روزرسانی کانتینر** را مرور می‌کنیم.
     
 
 در طول این قسمت، یاد می‌گیریم چطور با چند دستور ساده، محیطی مشابه نصب Bare Metal ایجاد کنیم اما با انعطاف بالاتر، مخصوصاً برای محیط‌های تست، توسعه یا حتی Production.
@@ -96,17 +96,17 @@ see this video in Farsi --> [Prometheus Learning_Farsi]([https://prometheus.io/d
 در ابتدا، مراحل نصب و راه‌اندازی اولیه‌ی Grafana را مرور می‌کنیم و وارد محیط مدیریتی آن می‌شویم.  
 سپس به‌صورت گام‌به‌گام مراحل زیر را انجام می‌دهیم:
 
-1. **افزودن Prometheus به‌عنوان Data Source** در Grafana.
+‏۱. **افزودن Prometheus به‌عنوان Data Source** در Grafana.
     
-2. بررسی نحوه‌ی تست ارتباط بین Grafana و Prometheus.
+‏۲. بررسی نحوه‌ی تست ارتباط بین Grafana و Prometheus.
     
-3. **ایجاد داشبورد جدید** و اضافه کردن **Panelها** برای نمایش متریک‌ها.
+‏۳. **ایجاد داشبورد جدید** و اضافه کردن **Panelها** برای نمایش متریک‌ها.
     
-4. کار با **PromQL Queryها** در بخش Query Editor برای فیلتر و تحلیل داده‌ها.
+‏۴. کار با **PromQL Queryها** در بخش Query Editor برای فیلتر و تحلیل داده‌ها.
     
-5. استفاده از **داشبوردهای آماده (Prebuilt Dashboards)** از سایت Grafana Labs برای نمایش متریک‌های عمومی مثل Node Exporter و Docker Metrics.
+‏۵. استفاده از **داشبوردهای آماده (Prebuilt Dashboards)** از سایت Grafana Labs برای نمایش متریک‌های عمومی مثل Node Exporter و Docker Metrics.
     
-6. تنظیمات ظاهری و شخصی‌سازی داشبورد (مانند واحدها، رنگ‌ها و refresh interval).
+‏۶. تنظیمات ظاهری و شخصی‌سازی داشبورد (مانند واحدها، رنگ‌ها و refresh interval).
     
 
 در پایان این قسمت، شما یاد خواهید گرفت چطور داده‌های خام Prometheus را به گراف‌ها و داشبوردهای قابل‌تحلیل تبدیل کنید و از Grafana برای **مانیتورینگ زنده و حرفه‌ای سیستم‌ها** استفاده نمایید.
@@ -123,17 +123,17 @@ see this video in Farsi --> [Prometheus Learning_Farsi]([https://prometheus.io/d
 در ابتدا توضیح می‌دهیم که **Textfile Exporter** چیست و چگونه در کنار **Node Exporter** عمل می‌کند.  
 سپس به‌صورت عملی مراحل زیر را انجام می‌دهیم:
 
-1. فعال‌سازی **Textfile Collector** در Node Exporter.
+‏۱. فعال‌سازی **Textfile Collector** در Node Exporter.
     
-2. بررسی مسیر پیش‌فرض فایل‌های متریک (`/var/lib/node_exporter/textfile_collector`).
+‏۲. بررسی مسیر پیش‌فرض فایل‌های متریک (`/var/lib/node_exporter/textfile_collector`).
     
-3. ایجاد یک فایل متریک ساده با فرمت استاندارد Prometheus (مثلاً `custom_metrics.prom`).
+‏۳. ایجاد یک فایل متریک ساده با فرمت استاندارد Prometheus (مثلاً `custom_metrics.prom`).
     
-4. بررسی ساختار خطوط متریک‌ها شامل `metric_name`, `labels` و `value`.
+‏۴. بررسی ساختار خطوط متریک‌ها شامل `metric_name`, `labels` و `value`.
     
-5. مشاهده‌ی داده‌ها در رابط وب Prometheus و اطمینان از دریافت متریک سفارشی.
+‏۵. مشاهده‌ی داده‌ها در رابط وب Prometheus و اطمینان از دریافت متریک سفارشی.
     
-6. در نهایت، مثال‌هایی از **متریک‌های سفارشی واقعی** مثل اندازه فایل، نتیجه پینگ یا وضعیت سرویس‌ها را بررسی می‌کنیم.
+‏۶. در نهایت، مثال‌هایی از **متریک‌های سفارشی واقعی** مثل اندازه فایل، نتیجه پینگ یا وضعیت سرویس‌ها را بررسی می‌کنیم.
     
 
 در پایان این قسمت، شما خواهید توانست **هر نوع داده‌ی دلخواه** را با نوشتن یک فایل ساده‌ی متنی، در Prometheus ذخیره و در Grafana نمایش دهید.
@@ -152,17 +152,17 @@ see this video in Farsi --> [Prometheus Learning_Farsi]([https://prometheus.io/d
 در ابتدا با مفهوم **Expose کردن متریک‌ها از طریق HTTP endpoint** آشنا می‌شویم و توضیح می‌دهیم چرا Prometheus از این روش برای جمع‌آوری داده استفاده می‌کند.  
 سپس به‌صورت عملی مراحل زیر را انجام می‌دهیم:
 
-1. ایجاد یک **HTTP Server ساده** (مثلاً با Python یا Go) که روی یک پورت خاص در حال اجراست.
+۱. ایجاد یک **HTTP Server ساده** (مثلاً با Python یا Go) که روی یک پورت خاص در حال اجراست.
     
-2. استفاده از **کتابخانه رسمی Prometheus client** برای تولید و مدیریت متریک‌ها (Counter، Gauge، Histogram و Summary).
+۲. استفاده از **کتابخانه رسمی Prometheus client** برای تولید و مدیریت متریک‌ها (Counter، Gauge، Histogram و Summary).
     
-3. افزودن endpoint `/metrics` و نمایش خروجی در فرمت متنی استاندارد Prometheus.
+۳. افزودن endpoint `/metrics` و نمایش خروجی در فرمت متنی استاندارد Prometheus.
     
-4. اجرای سرور و تست متریک‌ها از طریق مرورگر یا `curl`.
+۴. اجرای سرور و تست متریک‌ها از طریق مرورگر یا `curl`.
     
-5. افزودن این HTTP Exporter به فایل پیکربندی `prometheus.yml` به‌عنوان target جدید.
+۵. افزودن این HTTP Exporter به فایل پیکربندی `prometheus.yml` به‌عنوان target جدید.
     
-6. بررسی دریافت داده‌ها در Prometheus و نمایش آن‌ها در Grafana.
+۶. بررسی دریافت داده‌ها در Prometheus و نمایش آن‌ها در Grafana.
     
 
 در طول این قسمت، یاد می‌گیریم چطور با چند خط کد ساده، یک **Exporter اختصاصی** بسازیم تا بتوانیم هر داده‌ی دلخواهی — مثل وضعیت برنامه، تعداد درخواست‌ها یا خطاها — را برای مانیتورینگ در Prometheus قابل دسترسی کنیم.
@@ -180,19 +180,19 @@ see this video in Farsi --> [Prometheus Learning_Farsi]([https://prometheus.io/d
 در ابتدا توضیح می‌دهیم که Pushgateway چیست، چه زمانی باید از آن استفاده کنیم و در چه شرایطی نباید.  
 سپس به‌صورت عملی مراحل زیر را انجام می‌دهیم:
 
-1. **نصب و اجرای Pushgateway** .
+۱. **نصب و اجرای Pushgateway** .
     
-2. **ارسال متریک‌ها از طریق HTTP POST یا با استفاده از کتابخانه‌های رسمی Prometheus client** (مثل Python، Go یا Bash script).
+۲. **ارسال متریک‌ها از طریق HTTP POST یا با استفاده از کتابخانه‌های رسمی Prometheus client** (مثل Python، Go یا Bash script).
     
-3. بررسی ساختار آدرس‌ها در Pushgateway و مفهوم `job` و `instance`.
+۳. بررسی ساختار آدرس‌ها در Pushgateway و مفهوم `job` و `instance`.
     
-4. مشاهده‌ی داده‌ها در رابط وب Pushgateway و اطمینان از دریافت موفق متریک‌ها.
+۴. مشاهده‌ی داده‌ها در رابط وب Pushgateway و اطمینان از دریافت موفق متریک‌ها.
     
-5. افزودن Pushgateway به فایل پیکربندی `prometheus.yml` برای جمع‌آوری داده‌ها.
+۵. افزودن Pushgateway به فایل پیکربندی `prometheus.yml` برای جمع‌آوری داده‌ها.
     
-6. نمایش متریک‌های ارسال‌شده در Prometheus و ایجاد داشبورد در Grafana.
+۶. نمایش متریک‌های ارسال‌شده در Prometheus و ایجاد داشبورد در Grafana.
     
-7. بررسی نکات مهم مدیریتی مثل پاک‌سازی داده‌های قدیمی و تفاوت بین push موقت و دائم.
+۷. بررسی نکات مهم مدیریتی مثل پاک‌سازی داده‌های قدیمی و تفاوت بین push موقت و دائم.
     
 
 در پایان این قسمت، شما یاد خواهید گرفت چطور از Pushgateway برای ارسال متریک‌های مربوط به **Jobها، Cronها و سرویس‌های کوتاه‌عمر** استفاده کنید تا هیچ داده‌ای از چشم Prometheus دور نماند.
@@ -228,15 +228,15 @@ see this video in Farsi --> [Prometheus Learning_Farsi]([https://prometheus.io/d
 
 مراحل و مباحث اصلی قسمت شامل موارد زیر است:
 
-1. **مفهوم Label و کاربرد آن در Prometheus**
+۱. **مفهوم Label و کاربرد آن در Prometheus**
     
-2. ‏**Relabeling Targetها**: تغییر، اضافه یا حذف Labelها قبل از Scraping
+۲. ‏**Relabeling Targetها**: تغییر، اضافه یا حذف Labelها قبل از Scraping
     
-3. ‏**Relabeling Metricها**: تغییر Labelها بعد از دریافت Metric
+۳. ‏**Relabeling Metricها**: تغییر Labelها بعد از دریافت Metric
     
-4. **استفاده از Regular Expression و Templateها** برای فیلتر و تغییر Labelها
+۴. **استفاده از Regular Expression و Templateها** برای فیلتر و تغییر Labelها
     
-5. ‏**Examples عملی**:
+۵. ‏**Examples عملی**:
     
     - فیلتر کردن Targetهای خاص بر اساس نام یا آدرس IP
         
@@ -258,31 +258,31 @@ see this video in Farsi --> [Prometheus Learning_Farsi]([https://prometheus.io/d
 
 مباحث اصلی قسمت شامل موارد زیر است:
 
-1. **معرفی Label و کاربرد آن در سری‌های زمانی**
+۱. **معرفی Label و کاربرد آن در سری‌های زمانی**
     
     - نقش Label در شناسایی و تفکیک Metricها
         
     - تفاوت بین Target Labels و Metric Labels
         
-2. **بهینه‌سازی Labelها**
+۲. **بهینه‌سازی Labelها**
     
     - انتخاب Label مناسب برای جلوگیری از انفجار تعداد سری‌ها (High Cardinality)
         
     - ‏Labelهایی که نباید اضافه کرد و دلایل آن
         
-3. ‏**Labelها و Queryها**
+۳. ‏**Labelها و Queryها**
     
     - استفاده از Labelها در PromQL برای فیلتر و گروه‌بندی
         
     - نمونه‌های عملی از `sum`, `avg`, `max`, `count` با Labelها
         
-4. ‏**Labelها و Alerting**
+۴. ‏**Labelها و Alerting**
     
     - استفاده از Labelها برای Alertهای دقیق و قابل فهم
         
     - نحوه گروه‌بندی Alerts بر اساس Labelهای خاص
         
-5. ‏**Best Practices برای طراحی Labelها**
+۵. ‏**Best Practices برای طراحی Labelها**
     
     - استانداردسازی نام Labelها
         
@@ -302,31 +302,31 @@ see this video in Farsi --> [Prometheus Learning_Farsi]([https://prometheus.io/d
 
 مباحث اصلی قسمت شامل موارد زیر است:
 
-1. **آشنایی با Blackbox Exporter و کاربرد آن**
+۱. **آشنایی با Blackbox Exporter و کاربرد آن**
     
     - تفاوت با Node Exporter و سایر Exporterها
         
     - چرا برای سناریوهای خارجی و کوتاه‌مدت مناسب است
         
-2. **نصب و راه‌اندازی Blackbox Exporter**
+۲. **نصب و راه‌اندازی Blackbox Exporter**
     
     - روش نصب با Docker یا به‌صورت مستقل
         
     - آشنایی با فایل پیکربندی `blackbox.yml`
         
-3. **تعریف probeها (endpointها)**
+۳. **تعریف probeها (endpointها)**
     
     - نمونه probe برای HTTP، HTTPS، TCP و ICMP
         
     - تنظیم پارامترهایی مثل timeout، follow_redirects و valid_http_versions
         
-4. **اضافه کردن Blackbox Exporter به Prometheus**
+۴. **اضافه کردن Blackbox Exporter به Prometheus**
     
     - نحوه تعریف targetها در `prometheus.yml`
         
     - جمع‌آوری داده‌ها و مشاهده متریک‌ها در رابط وب Prometheus
         
-5. **نمایش داده‌ها در Grafana**
+۵. **نمایش داده‌ها در Grafana**
     
     - ایجاد داشبورد برای نمایش دسترس‌پذیری و زمان پاسخ سرویس‌ها
         
@@ -347,19 +347,19 @@ see this video in Farsi --> [Prometheus Learning_Farsi]([https://prometheus.io/d
 
 مباحث اصلی قسمت شامل موارد زیر است:
 
-1. **آشنایی با GPU Exporter و کاربرد آن**
+۱. **آشنایی با GPU Exporter و کاربرد آن**
     
     - چرا پایش GPU مهم است
         
     - تفاوت GPU Exporter با Node Exporter و سایر Exporterها
         
-2. **نصب و راه‌اندازی GPU Exporter**
+۲. **نصب و راه‌اندازی GPU Exporter**
     
     - نصب با Docker یا به‌صورت مستقل
         
     - بررسی پیش‌نیازها مثل درایورهای NVIDIA و ابزار nvidia-smi
         
-3. **بررسی متریک‌های مهم GPU**
+۳. **بررسی متریک‌های مهم GPU**
     
     - ‏`gpu_utilization` برای میزان استفاده از GPU
         
@@ -367,13 +367,13 @@ see this video in Farsi --> [Prometheus Learning_Farsi]([https://prometheus.io/d
         
     - ‏`temperature` و `fan_speed` برای پایش دما و سرعت فن
         
-4. **اضافه کردن GPU Exporter به Prometheus**
+۴. **اضافه کردن GPU Exporter به Prometheus**
     
     - تعریف Targetها در `prometheus.yml`
         
     - جمع‌آوری و مشاهده داده‌ها در رابط وب Prometheus
         
-5. **نمایش داده‌ها در Grafana**
+۵. **نمایش داده‌ها در Grafana**
     
     - ایجاد داشبورد برای GPUها
         
@@ -394,19 +394,19 @@ see this video in Farsi --> [Prometheus Learning_Farsi]([https://prometheus.io/d
 
 مباحث اصلی قسمت شامل موارد زیر است:
 
-1. **آشنایی با Postgres Exporter و کاربرد آن**
+۱. **آشنایی با Postgres Exporter و کاربرد آن**
     
     - چرا پایش پایگاه داده مهم است
         
     - تفاوت Postgres Exporter با سایر Exporterهای عمومی
         
-2. **نصب و راه‌اندازی Postgres Exporter**
+۲. **نصب و راه‌اندازی Postgres Exporter**
     
     - نصب با Docker یا به‌صورت مستقل
         
     - تنظیم دسترسی‌های لازم در دیتابیس برای جمع‌آوری داده‌ها
         
-3. **بررسی متریک‌های کلیدی PostgreSQL**
+۳. **بررسی متریک‌های کلیدی PostgreSQL**
     
     - ‏`pg_stat_activity` برای مشاهده اتصالات فعال
         
@@ -416,13 +416,13 @@ see this video in Farsi --> [Prometheus Learning_Farsi]([https://prometheus.io/d
         
     - مصرف منابع مانند CPU و حافظه مرتبط با PostgreSQL
         
-4. **اضافه کردن Postgres Exporter به Prometheus**
+۴. **اضافه کردن Postgres Exporter به Prometheus**
     
     - تعریف Targetها در `prometheus.yml`
         
     - جمع‌آوری داده‌ها و مشاهده آن‌ها در رابط وب Prometheus
         
-5. **نمایش داده‌ها در Grafana**
+۵. **نمایش داده‌ها در Grafana**
     
     - ایجاد داشبورد برای پایش دیتابیس
         
@@ -443,19 +443,19 @@ see this video in Farsi --> [Prometheus Learning_Farsi]([https://prometheus.io/d
 
 مباحث اصلی قسمت شامل موارد زیر است:
 
-1. **آشنایی با Node Exporter و کاربرد آن**
+‏۱. **آشنایی با Node Exporter و کاربرد آن**
     
     - نقش Node Exporter در جمع‌آوری متریک‌های سیستم
         
     - تفاوت آن با سایر Exporterها و استفاده از آن در محیط‌های Production
         
-2. **نصب و راه‌اندازی Node Exporter**
+‏۲. **نصب و راه‌اندازی Node Exporter**
     
     - نصب با Docker یا به‌صورت مستقل
         
     - تنظیم سرویس و دسترسی‌ها
         
-3. **بررسی متریک‌های کلیدی سیستم**
+‏۳. **بررسی متریک‌های کلیدی سیستم**
     
     - ‏CPU: `node_cpu_seconds_total`
         
@@ -467,7 +467,7 @@ see this video in Farsi --> [Prometheus Learning_Farsi]([https://prometheus.io/d
         
     - پروسس‌ها: تعداد، وضعیت و منابع مصرفی
         
-4. **تنظیم Exporter برای محیط‌های بزرگ**
+‏۴. **تنظیم Exporter برای محیط‌های بزرگ**
     
     - بهینه‌سازی scrape interval
         
@@ -475,7 +475,7 @@ see this video in Farsi --> [Prometheus Learning_Farsi]([https://prometheus.io/d
         
     - مدیریت Labelها برای محیط‌های چند سروری
         
-5. **نمایش داده‌ها در Grafana**
+‏۵. **نمایش داده‌ها در Grafana**
     
     - ایجاد داشبوردهای آماده و سفارشی
         
@@ -497,31 +497,31 @@ see this video in Farsi --> [Prometheus Learning_Farsi]([https://prometheus.io/d
 
 مباحث اصلی قسمت شامل موارد زیر است:
 
-1. **آشنایی با Grok Exporter و کاربرد آن**
+‏۱. **آشنایی با Grok Exporter و کاربرد آن**
     
     - تبدیل لاگ‌ها به Metricهای Prometheus
         
     - تفاوت Grok Exporter با سایر Exporterها
         
-2. **نصب و راه‌اندازی Grok Exporter**
+‏۲. **نصب و راه‌اندازی Grok Exporter**
     
     - نصب با Docker یا به‌صورت مستقل
         
     - تنظیم فایل پیکربندی `grok_exporter.yml`
         
-3. **تعریف و استفاده از الگوهای Grok**
+‏۳. **تعریف و استفاده از الگوهای Grok**
     
     - استخراج اطلاعات دلخواه از لاگ‌ها
         
     - ایجاد Metricهای Counter، Gauge و Histogram از داده‌های لاگ
         
-4. **اضافه کردن Grok Exporter به Prometheus**
+‏۴. **اضافه کردن Grok Exporter به Prometheus**
     
     - تعریف Target در `prometheus.yml`
         
     - جمع‌آوری داده‌ها و مشاهده Metricها در رابط وب Prometheus
         
-5. **نمایش داده‌ها در Grafana**
+‏۵. **نمایش داده‌ها در Grafana**
     
     - ساخت داشبورد برای متریک‌های استخراج‌شده
         
@@ -543,31 +543,31 @@ see this video in Farsi --> [Prometheus Learning_Farsi]([https://prometheus.io/d
 
 مباحث اصلی قسمت شامل موارد زیر است:
 
-1. **آشنایی با Nginx Exporter و کاربرد آن**
+‏۱. **آشنایی با Nginx Exporter و کاربرد آن**
     
     - جمع‌آوری متریک‌های کلیدی Nginx مثل تعداد درخواست‌ها، زمان پاسخ و وضعیت سرور
         
     - تفاوت Nginx Exporter با Node Exporter
         
-2. **نصب و راه‌اندازی Nginx Exporter**
+‏۲. **نصب و راه‌اندازی Nginx Exporter**
     
     - نصب با Docker یا به‌صورت مستقل
         
     - تنظیم Target در Prometheus
         
-3. **معرفی k6 برای تست بار**
+‏۳. **معرفی k6 برای تست بار**
     
     - نصب k6
         
     - نوشتن اسکریپت ساده برای شبیه‌سازی تعداد درخواست‌ها و concurrency
         
-4. **تست عملکرد Nginx و جمع‌آوری متریک‌ها**
+‏۴. **تست عملکرد Nginx و جمع‌آوری متریک‌ها**
     
     - اجرای k6 و مشاهده متریک‌ها در Prometheus
         
     - تحلیل تغییرات CPU، memory و latency در سرور
         
-5. **نمایش داده‌ها در Grafana**
+‏۵. **نمایش داده‌ها در Grafana**
     
     - ساخت داشبورد برای متریک‌های Nginx
         
@@ -589,31 +589,31 @@ see this video in Farsi --> [Prometheus Learning_Farsi]([https://prometheus.io/d
 
 مباحث اصلی قسمت شامل موارد زیر است:
 
-1. **آشنایی با Prometheus Client برای Golang**
+‏۱. **آشنایی با Prometheus Client برای Golang**
     
     - نصب و استفاده از کتابخانه رسمی `prometheus/client_golang`
         
     - انواع Metricها: Counter، Gauge، Histogram و Summary
         
-2. **ایجاد متریک‌های سفارشی در اپلیکیشن**
+‏۲. **ایجاد متریک‌های سفارشی در اپلیکیشن**
     
     - نمونه‌های عملی: تعداد درخواست‌ها، زمان پاسخ‌دهی، خطاها و وضعیت سرویس‌ها
         
     - ثبت متریک‌ها در endpoint `/metrics`
         
-3. **اضافه کردن اپلیکیشن به Prometheus**
+‏۳. **اضافه کردن اپلیکیشن به Prometheus**
     
     - تعریف Target در فایل `prometheus.yml`
         
     - تست Scrape و اطمینان از دریافت متریک‌ها
         
-4. **تحلیل داده‌ها در Grafana**
+‏۴. **تحلیل داده‌ها در Grafana**
     
     - ایجاد داشبورد برای نمایش درخواست‌ها، latency و خطاها
         
     - نمونه Alert برای Notify کردن در صورت افزایش خطا یا زمان پاسخ
         
-5. **بهینه‌سازی و Best Practices**
+‏۵. **بهینه‌سازی و Best Practices**
     
     - جلوگیری از انفجار سری‌های متریک
         
@@ -637,19 +637,19 @@ see this video in Farsi --> [Prometheus Learning_Farsi]([https://prometheus.io/d
 
 مباحث اصلی قسمت شامل موارد زیر است:
 
-1. **آشنایی با cAdvisor و کاربرد آن**
+‏۱. **آشنایی با cAdvisor و کاربرد آن**
     
     - جمع‌آوری متریک‌های کانتینرها
         
     - تفاوت cAdvisor با Node Exporter و سایر Exporterها
         
-2. **نصب و راه‌اندازی cAdvisor**
+‏۲. **نصب و راه‌اندازی cAdvisor**
     
     - نصب با Docker
         
     - اجرای cAdvisor به‌صورت standalone و اتصال به Docker Engine
         
-3. **بررسی متریک‌های کلیدی کانتینرها**
+‏۳. **بررسی متریک‌های کلیدی کانتینرها**
     
     - ‏CPU: `container_cpu_usage_seconds_total`
         
@@ -659,13 +659,13 @@ see this video in Farsi --> [Prometheus Learning_Farsi]([https://prometheus.io/d
         
     - شبکه: `container_network_receive_bytes_total` و `container_network_transmit_bytes_total`
         
-4. **اضافه کردن cAdvisor به Prometheus**
+‏۴. **اضافه کردن cAdvisor به Prometheus**
     
     - تعریف Target در `prometheus.yml`
         
     - جمع‌آوری داده‌ها و مشاهده متریک‌ها در رابط وب Prometheus
         
-5. **نمایش داده‌ها در Grafana**
+‏۵. **نمایش داده‌ها در Grafana**
     
     - ایجاد داشبورد برای تحلیل مصرف منابع کانتینرها
         
@@ -687,37 +687,37 @@ see this video in Farsi --> [Prometheus Learning_Farsi]([https://prometheus.io/d
 
 مباحث اصلی قسمت شامل موارد زیر است:
 
-1. **معرفی Exporter دلخواه و کاربرد آن**
+‏۱. **معرفی Exporter دلخواه و کاربرد آن**
     
     - چه زمانی به Exporter اختصاصی نیاز داریم
         
     - مروری بر ساختار استاندارد متریک‌ها در Prometheus
         
-2. **ایجاد برنامه Exporter**
+‏۲. **ایجاد برنامه Exporter**
     
     - انتخاب زبان برنامه‌نویسی (Python، Go یا دیگر زبان‌ها)
         
     - استفاده از کتابخانه رسمی Prometheus Client برای تولید متریک‌ها
         
-3. **تعریف متریک‌های سفارشی**
+‏۳. **تعریف متریک‌های سفارشی**
     
     - انواع Metricها: Counter، Gauge، Histogram و Summary
         
     - مثال‌های عملی: وضعیت سرویس، تعداد پردازش‌ها، خطاها، زمان پاسخ
         
-4. **راه‌اندازی HTTP Endpoint**
+‏۴. **راه‌اندازی HTTP Endpoint**
     
     - ساخت endpoint `/metrics` برای ارائه داده‌ها
         
     - تست دستی داده‌ها با `curl` یا مرورگر
         
-5. **اضافه کردن Exporter به Prometheus**
+‏۵. **اضافه کردن Exporter به Prometheus**
     
     - تعریف Target در فایل `prometheus.yml`
         
     - جمع‌آوری داده‌ها و مشاهده Metricها در Prometheus
         
-6. **نمایش داده‌ها در Grafana**
+‏۶. **نمایش داده‌ها در Grafana**
     
     - ایجاد داشبورد برای متریک‌های اختصاصی
         
@@ -738,13 +738,13 @@ see this video in Farsi --> [Prometheus Learning_Farsi]([https://prometheus.io/d
 
 مباحث اصلی قسمت شامل موارد زیر است:
 
-1. **معرفی Helm و Helm Chart برای Prometheus**
+‏۱. **معرفی Helm و Helm Chart برای Prometheus**
     
     - چرا استفاده از Helm ساده‌تر و استانداردتر است
         
     - آشنایی با Helm Chart رسمی `kube-prometheus-stack`
         
-2. **نصب Prometheus در Kubernetes با Helm**
+‏۲. **نصب Prometheus در Kubernetes با Helm**
     
     - اضافه کردن Repository Helm
         
@@ -752,7 +752,7 @@ see this video in Farsi --> [Prometheus Learning_Farsi]([https://prometheus.io/d
         
     - بررسی پادها و سرویس‌های ایجاد شده
         
-3. **مانیتورینگ کلاستر و پادها**
+‏۳. **مانیتورینگ کلاستر و پادها**
     
     - جمع‌آوری متریک‌های Kubernetes: Node، Pod، Deployment و Namespace
         
@@ -760,13 +760,13 @@ see this video in Farsi --> [Prometheus Learning_Farsi]([https://prometheus.io/d
         
     - بررسی متریک‌های CPU، حافظه، شبکه و دیسک پادها
         
-4. **تنظیم Scrape Targetها و ServiceMonitor**
+‏۴. **تنظیم Scrape Targetها و ServiceMonitor**
     
     - استفاده از ServiceMonitor برای جمع‌آوری متریک‌ها
         
     - اضافه کردن Annotationها برای Scrape متریک‌های اپلیکیشن‌ها
         
-5. **نمایش داده‌ها در Grafana**
+‏۵. **نمایش داده‌ها در Grafana**
     
     - استفاده از داشبوردهای پیش‌فرض Helm Chart
         
@@ -791,13 +791,13 @@ see this video in Farsi --> [Prometheus Learning_Farsi]([https://prometheus.io/d
 
 مباحث اصلی قسمت شامل موارد زیر است:
 
-1. **معرفی PromQL و کاربرد آن**
+‏۱. **معرفی PromQL و کاربرد آن**
     
     - چرا PromQL زبان استاندارد Query در Prometheus است
         
     - تفاوت بین Instant Vector و Range Vector
         
-2. **مفاهیم پایه PromQL**
+‏۲. **مفاهیم پایه PromQL**
     
     - ‏Selectors: انتخاب Metricها بر اساس Labelها
         
@@ -805,19 +805,19 @@ see this video in Farsi --> [Prometheus Learning_Farsi]([https://prometheus.io/d
         
     - ‏Functions: استفاده از توابع از پیش تعریف‌شده
         
-3. **مثال‌های عملی مقدماتی**
+‏۳. **مثال‌های عملی مقدماتی**
     
     - مشاهده مقدار فعلی یک Metric (`instant query`)
         
     - جمع‌آوری میانگین، مجموع یا بیشینه مقدار یک Metric در بازه زمانی مشخص (`range query`)
         
-4. **استفاده از Labelها در Queryها**
+‏۴. **استفاده از Labelها در Queryها**
     
     - فیلتر کردن Metricها بر اساس Label
         
     - گروه‌بندی و aggregation بر اساس Label
         
-5. **نمایش نتایج در Grafana**
+‏۵. **نمایش نتایج در Grafana**
     
     - ایجاد نمودارهای ساده برای Metricهای منتخب
         
@@ -838,13 +838,13 @@ see this video in Farsi --> [Prometheus Learning_Farsi]([https://prometheus.io/d
 
 مباحث اصلی قسمت شامل موارد زیر است:
 
-1. **مفهوم Aggregation در PromQL**
+‏۱. **مفهوم Aggregation در PromQL**
     
     - چرا Aggregation مهم است و کاربرد آن در تحلیل داده‌ها
         
     - تفاوت بین aggregation ساده و aggregation با group_by بر اساس Label
         
-2. **توابع Aggregation رایج**
+‏۲. **توابع Aggregation رایج**
     
     - ‏`sum`، `avg`، `min`، `max`، `count`
         
@@ -852,19 +852,19 @@ see this video in Farsi --> [Prometheus Learning_Farsi]([https://prometheus.io/d
         
     - نمونه‌های عملی روی Metricهای واقعی
         
-3. **استفاده از Labelها در Aggregation**
+‏۳. **استفاده از Labelها در Aggregation**
     
     - گروه‌بندی داده‌ها بر اساس Labelها (`by` و `without`)
         
     - مثال عملی: جمع‌آوری CPU استفاده‌شده به تفکیک Node یا Pod
         
-4. **ترکیب Aggregation با دیگر توابع PromQL**
+‏۴. **ترکیب Aggregation با دیگر توابع PromQL**
     
     - استفاده از `rate`, `irate`, `increase` در کنار aggregation
         
     - تحلیل روند داده‌ها در بازه‌های زمانی مختلف
         
-5. **نمایش نتایج در Grafana**
+‏۵. **نمایش نتایج در Grafana**
     
     - ایجاد نمودارهای تحلیلی با Aggregation
         
@@ -885,36 +885,30 @@ see this video in Farsi --> [Prometheus Learning_Farsi]([https://prometheus.io/d
 
 مباحث اصلی قسمت شامل موارد زیر است:
 
-1. **معرفی Binary Operation در PromQL**
+‏۱. **معرفی Binary Operation در PromQL**
     
     - تعریف و کاربرد Binary Operation
-        
     - انواع عملیات: `+`, `-`, `*`, `/`, `%`, `==`, `!=`, `<`, `>` و غیره
         
-2. **کار با Metricهای مشابه و متفاوت**
+‏ ۲. **کار با Metricهای مشابه و متفاوت**
     
     - انجام عملیات روی Metricهای با Labelهای مشابه
-        
     - استفاده از `on` و `ignoring` برای تطبیق Labelها
         
-3. **نمونه‌های عملی Binary Operation**
+‏ ۳. **نمونه‌های عملی Binary Operation**
     
     - محاسبه درصد استفاده CPU نسبت به کل CPU
-        
     - بررسی اختلاف بین تعداد درخواست‌های موفق و خطا
-        
     - ترکیب داده‌های شبکه یا دیسک برای تحلیل بار
         
-4. ‏**Binary Operation با توابع PromQL دیگر**
+‏ ۴. ‏**Binary Operation با توابع PromQL دیگر**
     
     - ترکیب با `rate`, `increase`, `sum` و `avg`
-        
     - تحلیل روند و مقایسه Metricها در طول زمان
         
-5. **نمایش داده‌ها در Grafana**
-    
+‏ ۵. **نمایش داده‌ها در Grafana**
+
     - ایجاد نمودارهای پیشرفته با Binary Operation
-        
     - نمونه Alert بر اساس مقایسه Metricها
         
 
