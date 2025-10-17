@@ -8,6 +8,7 @@ see this video in Farsi --> [Prometheus Learning_Farsi]([https://prometheus.io/d
 
 ## Table of Contents
 
+
 1. **Introduction to Prometheus**
    - What is Prometheus?
    - Key Features
@@ -213,4 +214,3 @@ groups:
 
 ---
 
-By following this guide, you will gain a solid understanding of Prometheus and be able to implement it effectively in your projects. Happy monitoring! 🚀
