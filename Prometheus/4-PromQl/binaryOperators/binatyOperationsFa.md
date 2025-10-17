@@ -260,7 +260,7 @@ node_hwmon_sensor_label
 • `and` اشتراک (intersection)
 • `unless` تفاضل مجموعه (set subtraction)
 
-![image](src/logical_operand.png)
+![image](../../../src/logical_operand.png)
 
 https://iximiuz.com/en/posts/prometheus-vector-matching/
 

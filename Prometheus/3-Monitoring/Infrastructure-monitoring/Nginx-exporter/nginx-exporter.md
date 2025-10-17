@@ -2,7 +2,7 @@
 
 Here's a comprehensive guide to setting up Nginx on your laptop and monitoring it with Prometheus:
 
-![image](src/nginx_exporter_img.png)
+![image](../../../../src/nginx_exporter_img.png)
 ## 1. Install Nginx
 
 ### On Linux (Ubuntu/Debian):

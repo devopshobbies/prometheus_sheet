@@ -47,11 +47,11 @@ curl 'http://localhost:9090/api/v1/query' \
 }
 ```
 
-۷![image](src/instantVec2.png)
+![image](../../../src/instantVec2.png)
 
 
 
-۷![image](src/instantVector.png)
+![image](../../../src/instantVector.png)
 
 
 
@@ -65,7 +65,7 @@ curl 'http://localhost:9090/api/v1/query' \
 
 ‏`[1m]` `instant vector selector` را به `range vector selector` تبدیل می‌کند و به `PromQL` دستور می‌دهد تا برای تمام `time series`های مطابق با `selector`، تمام `samples` مربوط به دقیقه منتهی به زمان ارزیابی کوئری را برگرداند. اگر فقط `process_cpu_seconds_total[1m]` را در تب `Console` مرورگر `expression` اجرا کنید، چیزی شبیه شکل زیر خواهید دید.
 
-۷![image](src/pic13.png)
+![image](../../../src/pic13.png)
 
 در این مورد، هر `time series` اتفاقاً شش `sample` در دقیقه گذشته دارد. متوجه خواهید شد که در حالی که `samples` برای هر `time series` اتفاقاً دقیقاً ۱۰ ثانیه از هم فاصله دارند مطابق با فاصله `scrape` که پیکربندی کرده‌اید، `timestamps` دو `time series` با یکدیگر هم‌تراز نیستند. یک `time series` یک `sample` با `timestamp` 1517925155.087 دارد و دیگری 1517925156.245.
 
@@ -75,10 +75,10 @@ curl 'http://localhost:9090/api/v1/query' \
 
 شما به ندرت به طور مستقیم به `range vectors` نگاه خواهید کرد. این فقط زمانی پیش می‌آید که برای `debugging` نیاز به دیدن `samples` خام دارید. تقریباً همیشه از `range vector` با تابعی مانند `rate` یا `avg_over_time` استفاده خواهید کرد که `range vector` را به عنوان آرگومان می‌گیرد. `Staleness` و `stale markers` تأثیری بر `range vectors` ندارند؛ شما تمام `samples` معمولی را در یک بازه معین دریافت خواهید کرد. هر `stale marker` دیگری نیز که در آن بازه باشد، توسط `range vector selector` بازگردانده نمی‌شود.
 
-۷![image](src/ReangeVec.png)
+![image](../../../src/ReangeVec.png)
 
 
-۷![image](src/RangeVector2.png)
+![image](../../../src/RangeVector2.png)
 
 
 
@@ -887,11 +887,11 @@ rate(http_requests_total[5m])
 
 یعنی: نرخ میانگین درخواست‌های HTTP در ۵ دقیقه گذشته.
 
-۷![image](src/rate.png)
+![image](../../../src/rate.png)
 
 
 
-۷![image](src/rate2.png)
+![image](../../../src/rate2.png)
 
 
 ---
@@ -912,24 +912,24 @@ rate(http_requests_total[5m])
 irate(cpu_usage_seconds_total[1m])
 ```
 
-۷![image](src/irate.png)
+![image](../../../src/irate.png)
 
 
 Applying the formula to all the serie this is the result:
 
-۷![image](src/irate2.png)
+![image](../../../src/irate2.png)
 
 
 Joining the points, I get a line with a considerable variation between the points.
 
-۷![image](src/irate3.png)
+![image](../../../src/irate3.png)
 
 
 یعنی: نرخ لحظه‌ای استفاده از CPU بر اساس آخرین دو نمونه در ۱ دقیقه اخیر.
 
 مقایسه irate , rate
 
-۷![image](src/rateVsIrate.png)
+![image](../../../src/rateVsIrate.png)
 
 ---
 
@@ -1123,7 +1123,7 @@ sum without(instance)(rate(prometheus_tsdb_compaction_duration_count[1d]))
 ## Durations
 ‏`Durations` (مدت زمان‌ها) در `Prometheus` همانطور که در `PromQL` و فایل پیکربندی استفاده می‌شوند، از چندین واحد پشتیبانی می‌کنند. شما قبلاً `m` برای دقیقه را دیده‌اید.
 
-۷![image](src/pic14.png)
+![image](../../../src/pic14.png)
 
 ### Subqueries
 

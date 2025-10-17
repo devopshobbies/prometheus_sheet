@@ -1,4 +1,4 @@
-![image](src/prometheusKuber.png)
+![image](../../../../src/prometheusKuber.png)
 
 
 
@@ -112,10 +112,10 @@ spec:
 
 با دنبال کردن این مراحل و پیکربندی مناسب، می‌توانید Prometheus را در Kubernetes مستقر کرده و به طور موثر متریک‌های مربوط به Podهای خود را جمع‌آوری و نظارت کنید. استفاده از Helm Chart `kube-prometheus-stack` یک راه شروع عالی است زیرا بسیاری از اجزای مورد نیاز را به صورت یکپارچه فراهم می‌کند.
 
-![image](src/loki-architect.png)
+![image](../../../../src/loki-architect.png)
 
 
-![image](src/loki_detail.png)
+![image](../../../../src/loki_detail.png)
 
 Loki Stack یک سیستم تجمیع لاگ است که از سه جزء اصلی تشکیل شده است:
 

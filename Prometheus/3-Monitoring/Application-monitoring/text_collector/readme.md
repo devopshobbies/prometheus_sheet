@@ -1,5 +1,5 @@
 
-![image](src/collectFile.png)
+![image](../../../../src/collectFile.png)
 
 ```sh
 python3 counter.py

@@ -7,7 +7,7 @@
 
 ---
 
-![imaage](src/tsdbKind.png)
+![imaage](../../../src/tsdbKind.png)
 
 ---
 ### تاریخچه
@@ -38,14 +38,14 @@
 **در کل، پرومتئوس ابزاری است که به شما کمک می‌کند تا از عملکرد صحیح و بهینه سیستم‌های خود اطمینان حاصل کرده و در صورت بروز هرگونه مشکل، به سرعت آن را شناسایی و برطرف کنید.**
 
 ---
-![image](src/3Observability.png)
+![image](../../../src/3Observability.png)
 
 ---
 #### سری‌های زمانی (Time Series) چیست؟
 **سری‌های زمانی** مجموعه‌ای از داده‌ها هستند که در بازه‌های زمانی مشخص جمع‌آوری شده‌اند. به عبارت ساده‌تر، هر داده‌ای که در طول زمان تغییر می‌کند و با یک برچسب زمانی همراه است، یک سری زمانی تشکیل می‌دهد.
 
 ---
-![image](src/time_series.png)
+![image](../../../src/time_series.png)
 
 ---
 **مثال‌های سری‌های زمانی:**
@@ -88,7 +88,7 @@
 - **متریک‌های کسب‌وکار:** تعداد کاربران فعال، درآمد، میزان تبدیل
 
 ---
-![image](src/4goldenSignal.png)
+![image](../../../src/4goldenSignal.png)
 
 ---
 
@@ -113,7 +113,7 @@ node_cpu_seconds_total{mode="idle",instance="localhost"} 12345.67
 - `12345.67`: مقدار متریک است که نشان می‌دهد CPU در حالت بیکار بوده است.
 
 ---
-![image](src/sampleTimeSeries.png)
+![image](../../../src/sampleTimeSeries.png)
 
 ---
 **جمع‌بندی:** متریک‌ها ستون فقرات مانیتورینگ هستند و به شما کمک می‌کنند تا درک عمیقی از سیستم‌های خود به دست آورید. در پرومتئوس، متریک‌ها به همراه Label‌ها و سری‌های زمانی، یک سیستم قدرتمند برای جمع‌آوری، ذخیره و تحلیل داده‌های مانیتورینگ را تشکیل می‌دهند.
@@ -133,7 +133,7 @@ https://prometheus.io/docs/concepts/metric_types/
 **ویژگی:** برای بازنشانی یک شمارنده، باید سرور یا سرویس مربوطه مجدداً راه‌اندازی شود.
 https://prometheus.github.io/client_python/instrumenting/counter/
 ---
-![image](src/counter.png)
+![image](../../../src/counter.png)
 
 ---
 ### ۲. Gauge 
@@ -144,7 +144,7 @@ http://godoc.org/github.com/prometheus/client_golang/prometheus#Gauge
 
 ---
 
-![image](src/gauge.png)
+![image](../../../src/gauge.png)
 
 ---
 ### ۳. Histogram 
@@ -154,7 +154,7 @@ http://godoc.org/github.com/prometheus/client_golang/prometheus#Gauge
 - https://prometheus.github.io/client_python/instrumenting/histogram/
 
 ---
-![image](src/histogram.png)
+![image](../../../src/histogram.png)
 
 ---
 - **ویژگی‌ها:**
@@ -208,7 +208,7 @@ https://github.com/prometheus/client_java#summary
 2. **مجموع کل مقادیر مشاهده‌شده** که به صورت `<basename>_sum` ارائه می‌شود.
 3. **تعداد رخدادهایی که مشاهده شده‌اند** که به صورت `<basename>_count` نمایش داده می‌شود.
 ---
-![image](src/SUMMARIES.png)
+![image](../../../src/SUMMARIES.png)
 
 ---
 

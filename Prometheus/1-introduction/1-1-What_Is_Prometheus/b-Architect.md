@@ -7,7 +7,7 @@
 
 ---
 
-![image](src/pushVsPull.png)
+![image](../../../src/pushVsPull.png)
 
 ---
 
@@ -68,7 +68,7 @@
 
 **Prometheus architecture**
 
-![image](src/architecture.png)
+![image](../../../src/architecture.png)
 
 ---
 
@@ -140,7 +140,7 @@
 
 ---
 
-![image](src/pushToAlert.png)
+![image](../../../src/pushToAlert.png)
 
 ---
 **چرا Exporterها مهم هستند؟**
