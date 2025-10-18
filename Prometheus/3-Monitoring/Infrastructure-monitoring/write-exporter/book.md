@@ -99,7 +99,7 @@ ch <- up // حداقل یک Desc باید ارسال شود.
 // اینترفیس prometheus.Collector را پیاده‌سازی می‌کند.
 func (c ConsulCollector) Collect(ch chan<- prometheus.Metric) {
 // این متد در هر بار اسکرِیپ (scrape) فراخوانی می‌شود.
-// 1. داده‌ها را از Consul واکشی کنید.
+// ۱. داده‌ها را از Consul واکشی کنید.
 consul, err := api.NewClient(api.DefaultConfig()) // اتصال به Consul
 if err != nil {
 // اگر اتصال ناموفق بود، consul_up را 0 قرار دهید.
@@ -116,7 +116,7 @@ return
 }
 // اگر تا اینجا رسیدیم، اتصال و واکشی موفق بوده است.
 ch <- prometheus.MustNewConstMetric(up, prometheus.GaugeValue, 1)
-// 2. متریک‌ها را پردازش و به فرمت پرومتئوس تبدیل کنید.
+// ۲. متریک‌ها را پردازش و به فرمت پرومتئوس تبدیل کنید.
 // پردازش Gauges
 for _, g := range metrics.Gauges {
 name := invalidChars.ReplaceAllLiteralString(g.Name, "_") // پاکسازی نام
@@ -156,7 +156,7 @@ sumDesc, prometheus.CounterValue, s.Sum/1000) // تبدیل Sum به ثانیه
 }
 }
 func main() {
-// 3. کالکتور را ثبت و سرور HTTP را راه‌اندازی کنید.
+// ۳. کالکتور را ثبت و سرور HTTP را راه‌اندازی کنید.
 c := ConsulCollector{} // ایجاد یک نمونه از کالکتور
 prometheus.MustRegister(c) // ثبت کالکتور در رجیستری پیش‌فرض
 http.Handle("/metrics", promhttp.Handler()) // ایجاد هندلر برای مسیر /metrics
@@ -351,7 +351,7 @@ def sanitize_name(s):
 class ConsulCollector(object):
     def collect(self):
         # این متد در هر بار اسکرِیپ فراخوانی می‌شود
-        # 1. واکشی داده‌ها از Consul
+        # ۱. واکشی داده‌ها از Consul
         try:
             out = urlopen("http://localhost:8500/v1/agent/metrics").read()
             metrics = json.loads(out.decode("utf-8"))
@@ -363,7 +363,7 @@ class ConsulCollector(object):
             print(f"Error fetching Consul metrics: {e}")
             return # از ادامه پردازش جلوگیری کنید
 
-        # 2. پردازش و تولید متریک‌ها
+        # ۲. پردازش و تولید متریک‌ها
         # پردازش Gauges
         for g in metrics.get("Gauges", []):
             # ایجاد یک خانواده متریک گیج
@@ -389,7 +389,7 @@ class ConsulCollector(object):
                                       sum_value=s["Sum"] / 1000)
 
 if __name__ == '__main__':
-    # 3. ثبت کالکتور و راه‌اندازی سرور HTTP
+    # ۳. ثبت کالکتور و راه‌اندازی سرور HTTP
     REGISTRY.register(ConsulCollector()) # ثبت کالکتور
     start_http_server(8000) # راه‌اندازی سرور HTTP در پورت 8000
     print("Starting Consul exporter (Python) on :8000")

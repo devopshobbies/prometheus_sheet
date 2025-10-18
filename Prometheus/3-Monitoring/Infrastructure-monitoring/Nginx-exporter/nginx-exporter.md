@@ -3,7 +3,7 @@
 Here's a comprehensive guide to setting up Nginx on your laptop and monitoring it with Prometheus:
 
 ![image](../../../../src/nginx_exporter_img.png)
-## 1. Install Nginx
+## ۱. Install Nginx
 
 ### On Linux (Ubuntu/Debian):
 ```bash
@@ -22,7 +22,7 @@ brew services start nginx
 ### On Windows:
 Download from [nginx.org](https://nginx.org/en/download.html) and run the executable
 
-## 2. Enable Nginx Status Module
+## ۲. Enable Nginx Status Module
 
 Edit your nginx configuration (typically `/etc/nginx/nginx.conf` or `/usr/local/etc/nginx/nginx.conf`):
 
@@ -46,7 +46,7 @@ sudo nginx -t
 sudo nginx -s reload
 ```
 
-## 3. Install Prometheus
+## ۳. Install Prometheus
 
 ### Download and install Prometheus:
 ```bash
@@ -73,7 +73,7 @@ scrape_configs:
 ./prometheus --config.file=prometheus.yml
 ```
 
-## 4. Install and Configure Nginx Exporter
+## ۴. Install and Configure Nginx Exporter
 
 The nginx status page needs to be parsed for Prometheus. Use the nginx-exporter:
 
@@ -97,13 +97,13 @@ scrape_configs:
       - targets: ['localhost:9113']
 ```
 
-## 5. Access the Dashboards
+## ۵. Access the Dashboards
 
 - Prometheus: http://localhost:9090
 - Nginx status: http://localhost:8089/nginx_status
 - Nginx exporter metrics: http://localhost:9113/metrics
 
-## 6. (Optional) Install Grafana for Visualization
+## ۶. (Optional) Install Grafana for Visualization
 
 ```bash
 # On Ubuntu/Debian
@@ -120,7 +120,7 @@ Access Grafana at http://localhost:3000 (default credentials admin/admin)
 
 Import Nginx dashboard (ID 12708) for pre-built visualizations.
 
-## 7. Generate Load (for testing)
+## ۷. Generate Load (for testing)
 
 You can use tools like `ab` (Apache Benchmark) or `wrk` to generate load:
 
@@ -204,7 +204,7 @@ k6 run test.js
 
 ## Advanced Scenarios
 
-### 1. Different HTTP Methods:
+### ۱. Different HTTP Methods:
 ```javascript
 import http from 'k6/http';
 
@@ -217,7 +217,7 @@ export default function () {
 }
 ```
 
-### 2. Variable Load Patterns:
+### ۲. Variable Load Patterns:
 ```javascript
 export let options = {
   stages: [
@@ -229,7 +229,7 @@ export let options = {
 };
 ```
 
-### 3. CSV Data Input:
+### ۳. CSV Data Input:
 ```javascript
 import { SharedArray } from 'k6/data';
 const testData = new SharedArray('users', function() {
@@ -244,22 +244,22 @@ export default function () {
 
 ## Monitoring Integration
 
-### 1. Output to Prometheus:
+### ۱. Output to Prometheus:
 ```bash
 k6 run --out experimental-prometheus-rw test.js
 ```
 
-### 2. Real-time Web Dashboard:
+### ۲. Real-time Web Dashboard:
 ```bash
 k6 run -o cloud test.js  # requires k6 cloud account
 ```
 
 ## Key Features of k6:
 
-1. **JavaScript-based** - Write complex test scenarios
-2. **CLI-first** - Easy to integrate into CI/CD pipelines
-3. **Metrics-rich** - Detailed performance data out of the box
-4. **Thresholds** - Define pass/fail criteria for your tests
+۱. **JavaScript-based** - Write complex test scenarios
+۲. **CLI-first** - Easy to integrate into CI/CD pipelines
+۳. **Metrics-rich** - Detailed performance data out of the box
+۴. **Thresholds** - Define pass/fail criteria for your tests
 
 Would you like me to elaborate on any specific aspect of k6 testing, such as:
 - Testing authenticated endpoints?

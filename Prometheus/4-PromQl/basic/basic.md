@@ -208,7 +208,7 @@ prometheus.NewHistogram(prometheus.HistogramOpts{
 
 ## 📘 مثال‌های رایج:
 
-### 1. **در فیلتر کردن Labelها**
+### ۱. **در فیلتر کردن Labelها**
 
 ```promql
 http_requests_total{job="api-server"}
@@ -218,7 +218,7 @@ http_requests_total{job="api-server"}
 
 ---
 
-### 2. **با regular expressions (regex)**
+### ۲. **با regular expressions (regex)**
 
 ```promql
 http_requests_total{instance=~"web-[0-9]+"}
@@ -228,7 +228,7 @@ http_requests_total{instance=~"web-[0-9]+"}
 
 ---
 
-### 3. **در توابعی مثل `label_replace()`**
+### ۳. **در توابعی مثل `label_replace()`**
 
 ```promql
 label_replace(up, "new_label", "$1", "job", "(.*)")
@@ -380,7 +380,7 @@ NaN
 
 ## 📘 مثال‌ها:
 
-### 1. ساده‌ترین حالت:
+### ۱. ساده‌ترین حالت:
 
 ```promql
 up
@@ -390,7 +390,7 @@ up
 
 ---
 
-### 2. با Label Selector:
+### ۲. با Label Selector:
 
 ```promql
 node_cpu_seconds_total{mode="idle", instance="server01:9100"}
@@ -400,7 +400,7 @@ node_cpu_seconds_total{mode="idle", instance="server01:9100"}
 
 ---
 
-### 3. با Offset (جابه‌جایی زمانی):
+### ۳. با Offset (جابه‌جایی زمانی):
 
 ```promql
 http_requests_total offset 1h
@@ -410,7 +410,7 @@ http_requests_total offset 1h
 
 ---
 
-### 4. اشتباه رایج – Range Vector نیست:
+### ۴. اشتباه رایج – Range Vector نیست:
 
 ```promql
 rate(http_requests_total[5m])   ✅ این یک Range Vector است، نه Instant
@@ -569,7 +569,7 @@ http_requests_total[5m]
 
 ## 🔍 مثال‌های رایج:
 
-### 1. فقط انتخاب بازه:
+### ۱. فقط انتخاب بازه:
 
 ```promql
 node_cpu_seconds_total[2m]
@@ -579,7 +579,7 @@ node_cpu_seconds_total[2m]
 
 ---
 
-### 2. استفاده در تابع `rate()`:
+### ۲. استفاده در تابع `rate()`:
 
 ```promql
 rate(http_requests_total[1m])
@@ -589,7 +589,7 @@ rate(http_requests_total[1m])
 
 ---
 
-### 3. استفاده در تابع `avg_over_time()`:
+### ۳. استفاده در تابع `avg_over_time()`:
 
 ```promql
 avg_over_time(node_load1[15m])
@@ -856,7 +856,7 @@ instance="localhost:9100",job="node",mountpoint="/run/user/1000"} 826912768
 
 ---
 
-## 🔁 1. `rate()`
+## 🔁 ۱. `rate()`
 
 * **تعریف**: نرخ متوسط تغییر مقدار یک counter در یک بازه زمانی مشخص.
 * **فرمولی**: ```$(آخر - اول) ÷ مدت زمان بازه$```
@@ -896,7 +896,7 @@ rate(http_requests_total[5m])
 
 ---
 
-## ⚡ 2. `irate()`
+## ⚡ ۲. `irate()`
 
 * **تعریف**: نرخ لحظه‌ای (تقریباً آخرین نرخ تغییر) بر اساس دو آخرین نمونه در بازه زمانی.
 * **ویژگی‌ها**:
@@ -933,7 +933,7 @@ Joining the points, I get a line with a considerable variation between the point
 
 ---
 
-## 📈 3. `increase()`
+## 📈 ۳. `increase()`
 
 * **تعریف**: مجموع افزایش مقدار یک counter در طول بازه زمانی.
 * **فرمولی**:` فقط $آخر - اول$ (نه تقسیم بر زمان).`

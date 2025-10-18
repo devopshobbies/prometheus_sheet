@@ -16,17 +16,17 @@ https://github.com/DannyRavi/cloud_software_farsi/blob/main/docs/Health%20Endpoi
 
 ### **کاربرد Blackbox Exporter**  
 این ابزار برای چک کردن **در دسترس بودن (Availability)** و **عملکرد (Performance)** سرویسهای مختلف از طریق پروتکلهای زیر استفاده میشود:  
-1. **HTTP/HTTPS**:  
+۱. **HTTP/HTTPS**:  
    - بررسی وضعیت وبسایتها (مثلاً آیا HTTP 200 برمیگرداند؟).  
    - بررسی SSL/TLS (تاریخ انقضا، اعتبار گواهی).  
    - اندازهگیری زمان پاسخ (Latency).  
-2. **TCP**:  
+۲. **TCP**:  
    - بررسی پورتهای باز (مثلاً آیا دیتابیس MySQL روی پورت 3306 پاسخ میدهد؟).  
-3. **ICMP (Ping)**:  
+۳. **ICMP (Ping)**:  
    - بررسی اینکه یک سرور یا دستگاه شبکه زنده است (مثل `ping` معمولی).  
-4. **DNS**:  
+۴. **DNS**:  
    - بررسی پاسخ DNS (مثلاً آیا یک رکورد خاص به درستی resolve میشود؟).  
-5. GRPC:
+۵. GRPC:
 - بررسی ارتباط‌های GRPC
 ---
 
@@ -41,11 +41,11 @@ https://github.com/DannyRavi/cloud_software_farsi/blob/main/docs/Health%20Endpoi
 ---
 
 ### **مثال تنظیم Blackbox Exporter**  
-1. **دانلود و اجرا**:  
+۱. **دانلود و اجرا**:  
    ```sh
    ./blackbox_exporter --config.file=blackbox.yml
    ```
-2. **تنظیم Prometheus برای scrape کردن**:  
+۲. **تنظیم Prometheus برای scrape کردن**:  
    ```yaml
    scrape_configs:
      - job_name: 'blackbox-http'
@@ -63,7 +63,7 @@ https://github.com/DannyRavi/cloud_software_farsi/blob/main/docs/Health%20Endpoi
          - target_label: __address__
            replacement: localhost:9115  # آدرس Blackbox Exporter
    ```
-3. **نمایش نتایج در Grafana**:  
+۳. **نمایش نتایج در Grafana**:  
    - میتوانید **زمان پاسخ، وضعیت SSL و ...** را در داشبورد Grafana مشاهده کنید.  
 
 مثال:
@@ -110,9 +110,9 @@ https://github.com/DannyRavi/cloud_software_farsi/blob/main/docs/Health%20Endpoi
 با استفاده از **Grok Exporter** میتوانید یک الگو تعریف کنید تا زمان پاسخ (120ms) را استخراج کند و به Prometheus گزارش دهد.
 
 ### **نحوه اجرا:**
-1. **تنظیم الگوی Grok** در فایل کانفیگ (مثلاً `config.yml`).
-2. **اجرای Exporter** به صورت دیمون (Daemon) یا سرویس.
-3. **تنظیم Prometheus** برای scrape کردن متریکهای Grok Exporter.
+۱. **تنظیم الگوی Grok** در فایل کانفیگ (مثلاً `config.yml`).
+۲. **اجرای Exporter** به صورت دیمون (Daemon) یا سرویس.
+۳. **تنظیم Prometheus** برای scrape کردن متریکهای Grok Exporter.
 
 ### **تفاوت با سایر Exporters:**
 ‏- **Promtail (Loki)**: برای ارسال لاگها به **Loki** استفاده میشود.
@@ -129,12 +129,12 @@ https://github.com/DannyRavi/cloud_software_farsi/blob/main/docs/Health%20Endpoi
 ---
 
 ### **جزئیات فنی ICMP RTT**
-1. **نحوه محاسبه**:  
+۱. **نحوه محاسبه**:  
    - دستگاه مبدأ یک بسته **ICMP Echo Request** (Ping) میفرستد.  
    - مقصد پس از دریافت، **ICMP Echo Reply** ارسال میکند.  
    - **RTT = زمان ارسال Request - زمان دریافت Reply**.  
 
-2. **واحد اندازهگیری**:  
+۲. **واحد اندازهگیری**:  
    - معمولاً بر حسب **میلیثانیه (ms)** گزارش میشود.  
    - مثال:  
      ```
@@ -143,7 +143,7 @@ https://github.com/DannyRavi/cloud_software_farsi/blob/main/docs/Health%20Endpoi
      64 bytes from 142.250.190.46: icmp_seq=0 ttl=116 time=12.345 ms  <-- این RTT است!
      ```
 
-3. **عوامل مؤثر بر RTT**:  
+۳. **عوامل مؤثر بر RTT**:  
    - فاصله جغرافیایی بین مبدأ و مقصد.  
    - ازدحام شبکه (Traffic Congestion).  
    - کیفیت زیرساخت شبکه (مثل روترها، کابلها).  
@@ -226,20 +226,20 @@ scrape_configs:
 ---
 
 ### **علل رایج Packet Loss در ICMP**
-1. **مشکلات شبکه**:  
+۱. **مشکلات شبکه**:  
    - ازدحام ترافیک (Network Congestion)  
    - خرابی سخت‌افزار (روترها، سوئیچ‌ها، کابل‌ها)  
-2. **مسدودسازی عمدی**:  
+۲. **مسدودسازی عمدی**:  
    - فایروال‌ها یا تنظیمات امنیتی که بسته‌های ICMP را **Drop** می‌کنند.  
-3. **مشکلات در مسیریابی**:  
+۳. **مشکلات در مسیریابی**:  
    - تنظیمات نادرست Routing Table.  
-4. **مشکلات در سرور/دستگاه مقصد**:  
+۴. **مشکلات در سرور/دستگاه مقصد**:  
    - overload شدن CPU یا قطعی موقت.  
 
 ---
 
 ### **چگونه Packet Loss را اندازه‌گیری کنیم؟**
-#### **1. استفاده از دستور `ping`**  
+#### **۱. استفاده از دستور `ping`**  
 در خط فرمان (Linux/Windows/macOS):  
 ```bash
 ping -c 10 example.com  # ارسال 10 درخواست ICMP
@@ -250,7 +250,7 @@ ping -c 10 example.com  # ارسال 10 درخواست ICMP
 ```
 - **20% Packet Loss** یعنی ۲ بسته از ۱۰ بسته ارسالی از دست رفته‌اند.
 
-#### **2. استفاده از ابزارهای پیشرفته**  
+#### **۲. استفاده از ابزارهای پیشرفته**  
 - **`mtr`** (ترکیب `ping` + `traceroute`):  
   ```bash
   mtr --report example.com
@@ -277,14 +277,14 @@ ping -c 10 example.com  # ارسال 10 درخواست ICMP
 ---
 
 ### **راه‌حل‌های کاهش Packet Loss**
-1. **رفع ازدحام شبکه**:  
+۱. **رفع ازدحام شبکه**:  
    - محدود کردن پهنای‌باند مصرفی.  
    - ارتقاء زیرساخت شبکه (مثل سوئیچ‌های بهتر).  
-2. **تنظیم فایروال**:  
+۲. **تنظیم فایروال**:  
    - مطمئن شوید قوانین فایروال بسته‌های ICMP را مسدود نمی‌کنند.  
-3. **بررسی مسیریابی**:  
+۳. **بررسی مسیریابی**:  
    - استفاده از `traceroute` برای یافتن گره‌های مشکل‌دار.  
-4. **بررسی سلامت سخت‌افزار**:  
+۴. **بررسی سلامت سخت‌افزار**:  
    - تست کابل‌ها، روترها و سوئیچ‌ها.  
 
 ---

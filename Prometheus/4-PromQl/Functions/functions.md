@@ -110,7 +110,8 @@ delta(cpu_temp_celsius{host="zeus"}[2h])
 
 ### تا اینجا
 
-`double_exponential_smoothing()`
+### `double_exponential_smoothing()`
+
 این تابع باید از طریق فلگ ویژگی `--enable-feature=promql-experimental-functions` فعال شود.
 
 ‏`double_exponential_smoothing(v range-vector, sf scalar, tf scalar)`: یک مقدار هموار شده برای هر سری زمانی float در بازه `v` تولید می‌کند. هرچه ضریب smoothing یا هموارسازی `sf` کمتر باشد، اهمیت بیشتری به داده‌های قدیمی داده می‌شود. هرچه ضریب روند `tf` بالاتر باشد، trendsهای بیشتری در داده‌ها در نظر گرفته می‌شود. هر دو `sf` و `tf` باید بین ۰ و ۱ باشند. برای جزئیات بیشتر، به کتاب راهنمای آمار مهندسی NIST مراجعه کنید. در Prometheus V2 این تابع `holt_winters` نامیده می‌شد. این امر باعث سردرگمی می‌شد زیرا روش هولت-وینترز معمولاً به هموارسازی نمایی سه‌گانه اشاره دارد. هموارسازی نمایی دوگانه همانطور که در اینجا پیاده‌سازی شده است، به عنوان "Holt Linear" نیز شناخته می‌شود.

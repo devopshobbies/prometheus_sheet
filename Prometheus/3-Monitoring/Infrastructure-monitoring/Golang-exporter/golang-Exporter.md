@@ -183,20 +183,20 @@ func worker(ctx context.Context, counter *int32) {
 
 ## Key Metrics Added
 
-1. **Current Goroutines**:
+۱. **Current Goroutines**:
    - Metric: `app_goroutines_current` (Gauge)
    - Tracks the real-time number of active goroutines
 
-2. **Total Goroutines Created**:
+۲. **Total Goroutines Created**:
    - Metric: `app_goroutines_created_total` (Counter)
    - Counts all goroutines created during the operation
 
-3. **Phase Tracking**:
+۳. **Phase Tracking**:
    - Metric: `app_phase` (GaugeVec)
    - Labels: `phase="increasing"` or `phase="decreasing"`
    - Value 1 indicates active phase
 
-4. **Scaling Rate**:
+۴. **Scaling Rate**:
    - Metric: `app_scaling_rate` (Gauge)
    - Positive values = increasing goroutines
    - Negative values = decreasing goroutines
@@ -210,18 +210,18 @@ go mod init mygometric
 go mod tidy
 ```
    
-1. Run the application:
+۱. Run the application:
    ```bash
    go run main.go
    ```
 
-2. Access metrics:
+۲. Access metrics:
    - Prometheus metrics: http://localhost:2144/metrics
    - pprof: http://localhost:6063/debug/pprof/
    - `go tool pprof -http=:8022 http://localhost:6063/debug/pprof/profile\?seconds\=30`
    - Trace: `go tool trace goroutine_trace.out`
 
-3. Example Prometheus queries:
+۳. Example Prometheus queries:
    ```promql
    # Current goroutine count over time
    app_goroutines_current
@@ -236,9 +236,9 @@ go mod tidy
 ## Grafana Dashboard Suggestions
 
 Create a dashboard with these panels:
-1. **Current Goroutines**: Line graph of `app_goroutines_current`
-2. **Phase Timeline**: Stacked graph of `app_phase`
-3. **Scaling Rate**: Line graph of `app_scaling_rate`
-4. **Creation Rate**: Counter graph of `app_goroutines_created_total`
+۱. **Current Goroutines**: Line graph of `app_goroutines_current`
+۲. **Phase Timeline**: Stacked graph of `app_phase`
+۳. **Scaling Rate**: Line graph of `app_scaling_rate`
+۴. **Creation Rate**: Counter graph of `app_goroutines_created_total`
 
 This enhanced version gives you complete observability into the goroutine scaling behavior with both immediate metrics (Prometheus) and deep profiling (pprof+trace).

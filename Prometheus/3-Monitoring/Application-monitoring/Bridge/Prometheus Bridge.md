@@ -217,9 +217,9 @@ The app will expose:
 
 ### **Step 2: Build the Prometheus Bridge**
 Create a Python script (`prometheus_bridge.py`) that acts as a bridge. It will:
-1. Fetch metrics from `http://localhost:5000/stats`.
-2. Convert the JSON metrics into Prometheus format.
-3. Expose the converted metrics at `/metrics` for Prometheus to scrape.
+۱. Fetch metrics from `http://localhost:5000/stats`.
+۲. Convert the JSON metrics into Prometheus format.
+۳. Expose the converted metrics at `/metrics` for Prometheus to scrape.
 
 #### `prometheus_bridge.py`
 ```python
@@ -292,13 +292,13 @@ Start Prometheus:
 ---
 
 ### **Step 4: Test the Setup**
-4. **Generate Traffic**:
+۴. **Generate Traffic**:
    Use `curl` or a browser to hit the app’s endpoint:
    ```bash
    curl http://localhost:5000
    ```
 
-5. **Check the Bridge’s Metrics**:
+۵. **Check the Bridge’s Metrics**:
    ```bash
    curl http://localhost:8080/metrics
    ```
@@ -315,10 +315,10 @@ Start Prometheus:
    app_latency_seconds 0.45
    ```
 
-6. **Check Prometheus Targets**:
+۶. **Check Prometheus Targets**:
    Open `http://localhost:9090/targets` in your browser. Ensure the `prometheus_bridge` target is healthy.
 
-7. **Query Metrics in Prometheus**:
+۷. **Query Metrics in Prometheus**:
    Use PromQL to query metrics:
    - `app_requests_total`
    - `rate(app_requests_total[1m])`
@@ -327,7 +327,7 @@ Start Prometheus:
 ---
 
 ### **Step 5: Visualize in Grafana (Optional)**
-8. Install Grafana:
+۸. Install Grafana:
    ```bash
    docker run -d -p 3000:3000 grafana/grafana
    ```

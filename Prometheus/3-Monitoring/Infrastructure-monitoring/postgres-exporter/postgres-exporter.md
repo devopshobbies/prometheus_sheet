@@ -23,7 +23,7 @@ https://grafana.com/docs/grafana/latest/datasources/postgres/configure/
 
 ---
 
-## **1. کاربردهای Postgres Exporter**  
+## **۱. کاربردهای Postgres Exporter**  
 - **مانیتورینگ کوئری‌های کند** (pg_stat_statements)  
 - **ردیابی اتصالات فعال و idle**  
 - **بررسی لاگ‌های ریپلیکیشن** (در سیستم‌های Primary/Replica)  
@@ -33,7 +33,7 @@ https://grafana.com/docs/grafana/latest/datasources/postgres/configure/
 
 ---
 
-## **2. نحوه نصب و راه‌اندازی**  
+## **۲. نحوه نصب و راه‌اندازی**  
 
 ### **الف. نصب Postgres Exporter**  
 #### **روش ۱: دانلود از GitHub (پیش‌ساخته)**  
@@ -86,7 +86,7 @@ scrape_configs:
 
 ---
 
-## **3. مهم‌ترین متریک‌های قابل مانیتورینگ**  
+## **۳. مهم‌ترین متریک‌های قابل مانیتورینگ**  
 
 | **متریک** | **توضیح** |
 |-----------|-----------|
@@ -101,19 +101,19 @@ scrape_configs:
 
 ---
 
-## **4. تنظیم Dashboards در Grafana**  
+## **۴. تنظیم Dashboards در Grafana**  
 برای نمایش بهتر داده‌ها، می‌توانید از **داشبوردهای آماده Grafana** استفاده کنید:  
 - **PostgreSQL Overview** (ID: **9628**)  
 - **PostgreSQL Database** (ID: **6742**)  
 
 **نحوه اضافه کردن:**  
-1. در Grafana به **Dashboards > Import** بروید.  
-2. شناسه (ID) داشبورد را وارد کنید.  
-3. منبع داده (Prometheus) را انتخاب کنید.  
+۱. در Grafana به **Dashboards > Import** بروید.  
+۲. شناسه (ID) داشبورد را وارد کنید.  
+۳. منبع داده (Prometheus) را انتخاب کنید.  
 
 ---
 
-## **5. خطاهای رایج و عیب‌یابی**  
+## **۵. خطاهای رایج و عیب‌یابی**  
 - **`ERROR: permission denied for relation pg_stat_activity`**  
   → کاربر Exporter دسترسی کافی ندارد (`GRANT pg_monitor TO postgres_exporter`).  
 - **`connection refused`**  
