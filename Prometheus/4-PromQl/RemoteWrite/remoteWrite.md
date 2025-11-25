@@ -1,0 +1,1 @@
+https://last9.io/blog/what-is-prometheus-remote-write/
